@@ -1,0 +1,46 @@
+{
+  "Configuration.h": [
+    {
+      "op": "Enable",
+      "searchfor": "FILAMENT_RUNOUT_SENSOR",
+      "comment": "Spooler runout detection"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "FILAMENT_RUNOUT_DISTANCE_MM",
+      "value": "15",
+      "comment": "Spooler runout distance"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "FIL_RUNOUT_ENABLED_DEFAULT",
+      "value": "true",
+      "comment": "Enable runout by default for spooler"
+    }
+  ],
+  "Configuration_adv.h": [
+    {
+      "op": "Enable",
+      "searchfor": "ADVANCED_PAUSE_FEATURE",
+      "comment": "Auto-pause on spooler runout"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "PARK_HEAD_ON_PAUSE",
+      "comment": "Park on spooler pause"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "FILAMENT_CHANGE_UNLOAD_FEEDRATE",
+      "value": "10",
+      "comment": "Slow unload for spooler"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "FILAMENT_CHANGE_FAST_LOAD_FEEDRATE",
+      "value": "10",
+      "comment": "Slow load for spooler"
+    }
+  ],
+  "Version.h": []
+}

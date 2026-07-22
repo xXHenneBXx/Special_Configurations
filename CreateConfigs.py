@@ -147,7 +147,7 @@ def CustomizeFile(Machine_Name, SourceDir, TargetDir, Mode, config) :
     if verbose: log(">>>> using: _printers/Common.json")
     lines = ProcessLines("_printers/Common.json", config)
 
-    PathConfig = ['_printers/','_boards/','_displays/','_leveling/','_thermistor/','_features/']
+    PathConfig = ['_printers/','_boards/','_displays/','_thermistor/','_features/']
     for val in Mode:
       for path in PathConfig:
         JsonFile = path + val + '.json'
@@ -187,8 +187,9 @@ def Generate(Machine_Name, Mode) :
   loglines = ""
   print()
 
-  log('Configurations generator script for the Professional Firmware')
-  log('Author: Miguel A. Risco Castillo (c) 2022\n')
+  log('PET Pultrusion Configurations Generator')
+  log('Based on Recreator MK* by Josh Taylor')
+  log('Derived from Professional Firmware by MRiscoC (c) 2022\n')
 
   if Machine_Name:
     TargetDir = Machine_Name+'/'

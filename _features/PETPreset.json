@@ -1,0 +1,72 @@
+{
+  "Configuration.h": [
+    {
+      "op": "CustomVal",
+      "searchfor": "TEMP_SENSOR_0",
+      "value": "13",
+      "comment": "100k Hisens 3950 1% for PET"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "HEATER_0_MINTEMP",
+      "value": "5",
+      "comment": "PET preset"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "HEATER_0_MAXTEMP",
+      "value": "290",
+      "comment": "PET max temp 290C"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "EXTRUDE_MINTEMP",
+      "value": "200",
+      "comment": "PET extrusion minimum"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "PREHEAT_1_TEMP_HOTEND",
+      "value": "240",
+      "comment": "PET preheat"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "PREHEAT_1_TEMP_BED",
+      "value": "80",
+      "comment": "PET bed preheat"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "PREHEAT_2_TEMP_HOTEND",
+      "value": "255",
+      "comment": "PETE high-temp preheat"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "PREHEAT_2_TEMP_BED",
+      "value": "90",
+      "comment": "PETE bed preheat"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "DEFAULT_KP",
+      "value": "26.50",
+      "comment": "PET tuned PID"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "DEFAULT_KI",
+      "value": "2.30",
+      "comment": "PET tuned PID"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "DEFAULT_KD",
+      "value": " 82.00",
+      "comment": "PET tuned PID"
+    }
+  ],
+  "Configuration_adv.h": [],
+  "Version.h": []
+}
