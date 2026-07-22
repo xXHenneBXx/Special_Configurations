@@ -1,6 +1,6 @@
 # PET Pultrusion Configurator
 
-A configuration tool for generating Marlin firmware files for **PET/PETE plastic bottle-to-filament pultrusion systems**, based on the **Recreator MK*** by Josh Taylor and derived from the Professional Firmware Configurator by MRiscoC.
+A configuration tool for generating Marlin firmware files for **PET/PETE plastic bottle-to-filament pultrusion systems**, based on the **Recreator MK*** by Josh Taylor and derived from the Professional Firmware Configurator by MRiscoC, adapted by xXHenneBXx.
 
 This tool strips out 3D-printer-specific features that a pultrusion system does not need (bed leveling, probes, homing, CoreXY, laser modules) while keeping all beneficial enhancements (Input Shaping, Linear Advance, MPC temperature control, NeoPixel, Speaker, SD features, and more). New pultrusion-specific features have been added for PET/PETE processing.
 
@@ -105,7 +105,7 @@ Move the generated `Version.h`, `Configuration.h`, `Configuration_adv.h` to the 
 ## Credits
 
 - Based on **Recreator MK*** by Josh Taylor
-- Derived from **Professional Firmware** by Miguel A. Risco Castillo (MRiscoC)
+- Derived from **Professional Firmware** by MRiscoC, adapted by xXHenneBXx
 - Marlin is licensed under GPL
 
 ## Disclaimer

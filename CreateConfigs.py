@@ -2,8 +2,8 @@
 
 # ------------------------------------------------------------------------------
 # Configurations generator script for the Professional Firmware
-# Author: Miguel A. Risco Castillo
-# URL: https://github.com/mriscoc/Marlin_Configurations
+# Author: xXHenneBXx
+# URL: https://github.com/xXHenneBXx/Pultrusion
 # version: 6.2
 # date: 2022/11/05
 # ------------------------------------------------------------------------------
@@ -189,7 +189,7 @@ def Generate(Machine_Name, Mode) :
 
   log('PET Pultrusion Configurations Generator')
   log('Based on Recreator MK* by Josh Taylor')
-  log('Derived from Professional Firmware by MRiscoC (c) 2022\n')
+  log('Derived from Professional Firmware by MRiscoC (c) 2022, adapted by xXHenneBXx\n')
 
   if Machine_Name:
     TargetDir = Machine_Name+'/'

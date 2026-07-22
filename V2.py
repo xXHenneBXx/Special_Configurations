@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
 # ------------------------------------------------------------------------------
-# Ender3V2 Configurations generator script for the Professional Firmware
-# Author: Miguel A. Risco Castillo
-# URL: https://github.com/mriscoc/Marlin_Configurations
+# Ender3V2 Configurations generator script
+# Author: xXHenneBXx
+# URL: https://github.com/xXHenneBXx/Pultrusion
 # ------------------------------------------------------------------------------
 import CreateConfigs
 

@@ -1,204 +1,204 @@
 {
-"Configuration.h" : [
-  {
-    "op": "CustomVal",
-    "searchfor": "INVERT_X_DIR",
-    "value":"false"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "INVERT_Y_DIR",
-    "value":"false"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "INVERT_Z_DIR",
-    "value":"true"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "INVERT_E0_DIR",
-    "value":"false",
-    "comment": "Pultrusion pull direction"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "TEMP_SENSOR_0",
-    "value": "13",
-    "comment": "100k Hisens 3950 1% up to 300C"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "TEMP_SENSOR_BED",
-    "value": "1",
-    "comment": "Recreator MK3 Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "HEATER_0_MINTEMP",
-    "value": "5",
-    "comment": "Recreator MK3 Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "HEATER_0_MAXTEMP",
-    "value": "290",
-    "comment": "Recreator MK3 hotend max"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "BED_MINTEMP",
-    "value": "5",
-    "comment": "Recreator MK3 Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "BED_MAXTEMP",
-    "value": "120",
-    "comment": "Recreator MK3 Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "DEFAULT_KP",
-    "value": "22.89"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "DEFAULT_KI",
-    "value": "1.87"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "DEFAULT_KD",
-    "value": " 70.18"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "DEFAULT_BED_KP",
-    "value": "462.10"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "DEFAULT_BED_KI",
-    "value": " 85.47"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "DEFAULT_BED_KD",
-    "value": "624.59"
-  },
-  {
-    "op": "Custom",
-    "searchfor": "DEFAULT_AXIS_STEPS_PER_UNIT",
-    "mask": "{.*}",
-    "value":"{ 80, 80, 400, 130 }",
-    "comment": "Recreator MK3: higher E steps for pultrusion drive"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "DEFAULT_XJERK",
-    "value": "8.0",
-    "comment": "Recreator MK3 Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "DEFAULT_YJERK",
-    "value": "8.0",
-    "comment": "Recreator MK3 Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "DEFAULT_ZJERK",
-    "value": "0.4",
-    "comment": "Recreator MK3 Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "DEFAULT_EJERK",
-    "value": "5.0",
-    "comment": "Recreator MK3 Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "X_BED_SIZE",
-    "value": "230",
-    "comment": "Recreator MK3 Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "Y_BED_SIZE",
-    "value": "230",
-    "comment": "Recreator MK3 Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "X_MIN_POS",
-    "value": "0",
-    "comment": "Recreator MK3 Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "Y_MIN_POS",
-    "value": "0",
-    "comment": "Recreator MK3 Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "X_MAX_POS",
-    "value": "248",
-    "comment": "Recreator MK3 Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "Y_MAX_POS",
-    "value": "231",
-    "comment": "Recreator MK3 Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "Z_MAX_POS",
-    "value": "250",
-    "comment": "Recreator MK3 Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "FILAMENT_RUNOUT_DISTANCE_MM",
-    "value": "25",
-    "comment": "Recreator MK3 Configs"
-  },
-  {
-    "op": "Custom",
-    "searchfor": "NOZZLE_PARK_POINT",
-    "mask": "{.*}",
-    "value":"{ (X_BED_SIZE + 10), (Y_MAX_POS - 10), 20 }"
-  }
-],
-"Configuration_adv.h" : [
-  {
-    "op": "CustomVal",
-    "searchfor": "RETRACT_LENGTH",
-    "value": "3",
-    "comment": "Recreator MK3 direct-drive style"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "RETRACT_FEEDRATE",
-    "value": "40",
-    "comment": "Recreator MK3 Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "RETRACT_RECOVER_FEEDRATE",
-    "value": "40",
-    "comment": "Recreator MK3 Configs"
-  }
-],
-"Version.h" : [
-  {
-    "op": "Custom",
-    "searchfor": "MACHINE_NAME",
-    "mask": "\".+\"",
-    "value": "\"Recreator MK3\""
-  }
-]
+  "Configuration.h": [
+    {
+      "op": "CustomVal",
+      "searchfor": "INVERT_X_DIR",
+      "value": "false"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "INVERT_Y_DIR",
+      "value": "false"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "INVERT_Z_DIR",
+      "value": "true"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "INVERT_E0_DIR",
+      "value": "false",
+      "comment": "Pultrusion pull direction"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "TEMP_SENSOR_0",
+      "value": "13",
+      "comment": "100k Hisens 3950 1% up to 300C"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "TEMP_SENSOR_BED",
+      "value": "1",
+      "comment": "Recreator MK3 Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "HEATER_0_MINTEMP",
+      "value": "5",
+      "comment": "Recreator MK3 Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "HEATER_0_MAXTEMP",
+      "value": "290",
+      "comment": "Recreator MK3 hotend max"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "BED_MINTEMP",
+      "value": "5",
+      "comment": "Recreator MK3 Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "BED_MAXTEMP",
+      "value": "120",
+      "comment": "Recreator MK3 Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "DEFAULT_KP",
+      "value": "22.89"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "DEFAULT_KI",
+      "value": "1.87"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "DEFAULT_KD",
+      "value": " 70.18"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "DEFAULT_BED_KP",
+      "value": "462.10"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "DEFAULT_BED_KI",
+      "value": " 85.47"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "DEFAULT_BED_KD",
+      "value": "624.59"
+    },
+    {
+      "op": "Custom",
+      "searchfor": "DEFAULT_AXIS_STEPS_PER_UNIT",
+      "mask": "{.*}",
+      "value": "{ 80, 80, 400, 130 }",
+      "comment": "Recreator MK3: higher E steps for pultrusion drive"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "DEFAULT_XJERK",
+      "value": "8.0",
+      "comment": "Recreator MK3 Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "DEFAULT_YJERK",
+      "value": "8.0",
+      "comment": "Recreator MK3 Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "DEFAULT_ZJERK",
+      "value": "0.4",
+      "comment": "Recreator MK3 Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "DEFAULT_EJERK",
+      "value": "5.0",
+      "comment": "Recreator MK3 Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "X_BED_SIZE",
+      "value": "230",
+      "comment": "Recreator MK3 Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "Y_BED_SIZE",
+      "value": "230",
+      "comment": "Recreator MK3 Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "X_MIN_POS",
+      "value": "0",
+      "comment": "Recreator MK3 Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "Y_MIN_POS",
+      "value": "0",
+      "comment": "Recreator MK3 Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "X_MAX_POS",
+      "value": "248",
+      "comment": "Recreator MK3 Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "Y_MAX_POS",
+      "value": "231",
+      "comment": "Recreator MK3 Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "Z_MAX_POS",
+      "value": "250",
+      "comment": "Recreator MK3 Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "FILAMENT_RUNOUT_DISTANCE_MM",
+      "value": "25",
+      "comment": "Recreator MK3 Configs"
+    },
+    {
+      "op": "Custom",
+      "searchfor": "NOZZLE_PARK_POINT",
+      "mask": "{.*}",
+      "value": "{ (X_BED_SIZE + 10), (Y_MAX_POS - 10), 20 }"
+    }
+  ],
+  "Configuration_adv.h": [
+    {
+      "op": "CustomVal",
+      "searchfor": "RETRACT_LENGTH",
+      "value": "3",
+      "comment": "Recreator MK3 direct-drive style"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "RETRACT_FEEDRATE",
+      "value": "40",
+      "comment": "Recreator MK3 Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "RETRACT_RECOVER_FEEDRATE",
+      "value": "40",
+      "comment": "Recreator MK3 Configs"
+    }
+  ],
+  "Version.h": [
+    {
+      "op": "Custom",
+      "searchfor": "MACHINE_NAME",
+      "mask": "\".+\"",
+      "value": "\"~RECREATOR~ MK3\""
+    }
+  ]
 }

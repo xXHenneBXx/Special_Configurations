@@ -1,664 +1,692 @@
 {
-"Configuration.h" : [
-  {
-    "op": "InsertAfter",
-    "searchfor": "#pragma once",
-    "newline": "\n// Created by PET Pultrusion Configurator\n// Based on Recreator MK* by Josh Taylor\n// Derived from Professional Firmware by MRiscoC"
-  },
-  {
-    "op": "Custom",
-    "searchfor": "STRING_CONFIG_H_AUTHOR",
-    "mask" : "\".*\"",
-    "value": "\"PET Pultrusion Configurator\""
-  },
-  {
-    "op": "Enable",
-    "searchfor": "CUSTOM_VERSION_FILE"
-  },
-  {
-    "op": "InsertAfter",
-    "searchfor": "#define SERIAL_PORT",
-    "newline": "#define NO_AUTO_ASSIGN_WARNING  // Disable serial warnings"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "BAUDRATE",
-    "value": "250000",
-    "comment": "Increase serial performance"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "BAUD_RATE_GCODE",
-    "comment": "Enables change the baudrate"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "PIDTEMPBED",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "PID_AUTOTUNE_MENU",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "PID_EDIT_MENU",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "EXTRUDE_MINTEMP",
-    "value": "170",
-    "comment": "PET extrusion minimum temperature"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "EXTRUDE_MAXLENGTH",
-    "value": "5000",
-    "comment": "Pultrusion allows long extrusion"
-  },
-  {
-    "op": "Disable",
-    "searchfor": "THERMAL_PROTECTION_CHAMBER"
-  },
-  {
-    "op": "Disable",
-    "searchfor": "THERMAL_PROTECTION_COOLER"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "ENDSTOP_INTERRUPTS_FEATURE",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "InsertAfter",
-    "searchfor": "#define DEFAULT_AXIS_STEPS_PER_UNIT",
-    "newline": "\n#define LIMITED_MAX_STEPS_EDITING\n#if ENABLED(LIMITED_MAX_STEPS_EDITING)\n  #define MAX_STEPS_EDIT_VALUES       { 200, 200, 2000, 2000 }\n#endif"
-  },
-  {
-    "op": "Custom",
-    "searchfor": "DEFAULT_MAX_FEEDRATE",
-    "mask": "{.*}",
-    "value":"{ 500, 500, 10, 25 }",
-    "comment": "Pultrusion: lower E feedrate for steady pull"
-  },
-  {
-    "op": "InsertAfter",
-    "searchfor": "#define DEFAULT_MAX_FEEDRATE",
-    "newline": "\n#define DEFAULT_FEEDRATE_MM_M (25*60)"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "LIMITED_MAX_FR_EDITING",
-    "comment": "allows higher limits"
-  },
-  {
-    "op": "Custom",
-    "searchfor": "MAX_FEEDRATE_EDIT_VALUES",
-    "mask": "{.*}",
-    "value":"{ 3000, 3000, 80, 200 }",
-    "comment": "allows higher limits"
-  },
-  {
-    "op": "Custom",
-    "searchfor": "DEFAULT_MAX_ACCELERATION",
-    "mask": "{.*}",
-    "value":"{ 500, 500, 100, 1000 }",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "LIMITED_MAX_ACCEL_EDITING",
-    "comment": "allows higher limits"
-  },
-  {
-    "op": "Custom",
-    "searchfor": "MAX_ACCEL_EDIT_VALUES",
-    "mask": "{.*}",
-    "value":"{ 9999, 9999, 999, 9999 }",
-    "comment": "allows higher limits"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "DEFAULT_ACCELERATION",
-    "value": "500",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "DEFAULT_RETRACT_ACCELERATION",
-    "value": "800",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "DEFAULT_TRAVEL_ACCELERATION",
-    "value": "1000",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "Disable",
-    "searchfor": "CLASSIC_JERK",
-    "comment": "Enable JUNCTION DEVIATION"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "LIMITED_JERK_EDITING",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "Custom",
-    "searchfor": "MAX_JERK_EDIT_VALUES",
-    "mask": "{.*}",
-    "value":"{ 20, 20, 1, 20 }",
-    "comment": "allows higher limits"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "JUNCTION_DEVIATION_MM",
-    "value": "0.1"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "S_CURVE_ACCELERATION",
-    "comment": "Enabled"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "EEPROM_SETTINGS",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "EEPROM_AUTO_INIT",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "EEPROM_INIT_NOW",
-    "comment": "Reset EEPROM on first boot"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "PREHEAT_1_TEMP_HOTEND",
-    "value": "240",
-    "comment": "PET preheat"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "PREHEAT_1_TEMP_BED",
-    "value": "80",
-    "comment": "PET preheat"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "PREHEAT_1_FAN_SPEED",
-    "value": "128"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "PREHEAT_2_TEMP_HOTEND",
-    "value": "250",
-    "comment": "PETE preheat"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "PREHEAT_2_TEMP_BED",
-    "value": "90",
-    "comment": "PETE preheat"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "PREHEAT_2_FAN_SPEED",
-    "value": "128"
-  },
-  {
-    "op": "InsertAfter",
-    "searchfor": "#define PREHEAT_2_FAN_SPEED",
-    "newline": "\n#define PREHEAT_3_LABEL       \"PETE-HI\"\n#define PREHEAT_3_TEMP_HOTEND 260\n#define PREHEAT_3_TEMP_BED     90\n#define PREHEAT_3_FAN_SPEED   128\n\n#define PREHEAT_4_LABEL       \"CUSTOM\"\n#define PREHEAT_4_TEMP_HOTEND 190\n#define PREHEAT_4_TEMP_BED     50\n#define PREHEAT_4_FAN_SPEED   128"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "PRINTCOUNTER",
-    "comment": "Enable Pultrusion Statistics"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "SDSUPPORT",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "ENCODER_PULSES_PER_STEP",
-    "value": "4",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "ENCODER_STEPS_PER_MENU_ITEM",
-    "value": "1",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "LCD_FEEDBACK_FREQUENCY_DURATION_MS",
-    "value": "2",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "LCD_FEEDBACK_FREQUENCY_HZ",
-    "value": "5000",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "DWIN_LCD_PROUI"
-  },
-  {
-    "op": "InsertAfter",
-    "searchfor": "#define DWIN_LCD_PROUI",
-    "newline": "#define USE_STOCK_DWIN_SET\n\n// Pultrusion firmware features:"
-  },
-  {
-    "op": "InsertAfter",
-    "searchfor": "// Pultrusion firmware features:",
-    "newline": "#define ZHOME_BEFORE_LEVELING\n#define SMOOTH_ENCODER_MENUITEMS\n"
-  },
-  {
-    "op": "InsertAfter",
-    "searchfor": "// Pultrusion firmware features:",
-    "newline": "#if ENABLED(DWIN_LCD_PROUI)\n  #if PROUI_EX\n    #define HAS_TOOLBAR 1\n  #endif\n  #define HAS_CUSTOM_COLORS 1\n  #define HAS_CUSTOM_COLORS_MENU 1\n  #define HAS_PLOT 1\n  #define HAS_ESDIAG 1\n  #define HAS_LOCKSCREEN 1\n  #define HAS_FLOW_EDIT 1\n  #define HAS_FEEDRATE_EDIT 1\n  #define PREVIEW_MENU_ITEM\n  #define SHOW_REAL_POS\n  #define RUNOUT_TUNE_ITEM\n  #define PLR_TUNE_ITEM\n  #define MEDIASORT_MENU_ITEM\n  #define SHOW_SPEED_IND\n  #define NO_BLINK_IND\n#endif\n#define ZOFFSET_SAVE_SETTINGS"
-  },
-  {
-    "op": "InsertAfter",
-    "searchfor": "// Pultrusion firmware features:",
-    "newline": "#define PROUI_EX 1\n#if PROUI_EX\n  #if ENABLED(FILAMENT_RUNOUT_SENSOR)\n    #define HAS_PROUI_RUNOUT_SENSOR 1\n  #endif\n  #if ENABLED(EXTRUDERS)\n    #define HAS_PROUI_MAXTEMP 1\n  #endif\n  #define HAS_CGCODE 1\n#endif"
-  },
-  {
-    "op": "Disable",
-    "searchfor": "ZOFFSET_SAVE_SETTINGS"
-  },
-  {
-    "op": "Disable",
-    "searchfor": "NO_BLINK_IND"
-  },
-  {
-    "op": "Disable",
-    "searchfor": "MEDIASORT_MENU_ITEM"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "FAN_SOFT_PWM",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "FILAMENT_RUNOUT_SENSOR",
-    "comment": "Pultrusion: filament runout sensor support"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "FIL_RUNOUT_ENABLED_DEFAULT",
-    "value": "false"
-  }
-],
-"Configuration_adv.h" : [
-  {
-    "op": "InsertAfter",
-    "searchfor": "#pragma once",
-    "newline": "\n// Created by PET Pultrusion Configurator\n// Based on Recreator MK* by Josh Taylor"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "WATCH_TEMP_PERIOD",
-    "value": "40",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "THERMAL_PROTECTION_BED_PERIOD",
-    "value": "180",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "WATCH_BED_TEMP_PERIOD",
-    "value": "180",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "HOTEND_IDLE_TIMEOUT",
-    "comment": "Disable heaters after timeout"
-  },
-  {
-    "op": "Custom",
-    "searchfor": "HOTEND_IDLE_TIMEOUT_SEC",
-    "mask": "\\([0-9,*]+\\)",
-    "value": "(10*60)",
-    "comment": "10 minutes for heaters timeout"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "HOTEND_IDLE_MIN_TRIGGER",
-    "value": "(EXTRUDE_MINTEMP - 10)",
-    "comment": "set idle trigger lower than EXTRUDE_MINTEMP"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "FAN_MIN_PWM",
-    "value": "50",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "ADAPTIVE_STEP_SMOOTHING"
-  },
-  {
-    "op": "InsertAfter",
-    "searchfor": "#if ENABLED\\(ENCODER_RATE_MULTIPLIER\\)",
-    "newline": "  #define ENCODER_5X_STEPS_PER_SEC    30  // Pultrusion Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "ENCODER_10X_STEPS_PER_SEC",
-    "value": "80",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "ENCODER_100X_STEPS_PER_SEC",
-    "value": "130",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "BOOTSCREEN_TIMEOUT",
-    "value": "1100"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "SOUND_MENU_ITEM",
-    "comment": "Enable Sound Menu Item"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "STATUS_MESSAGE_SCROLLING",
-    "comment": "Allows scrolling of large status messages"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "SET_PROGRESS_MANUALLY",
-    "comment": "Allows display feedback of host printing through GCode M73"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "SET_PROGRESS_PERCENT",
-    "comment": "Allows display feedback of host printing through GCode M73"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "SET_REMAINING_TIME",
-    "comment": "Allows display feedback of host printing through GCode M73"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "SHOW_REMAINING_TIME",
-    "comment": "Allows display remaining time"
-  },
-  {
-    "op": "Disable",
-    "searchfor": "SD_PROCEDURE_DEPTH",
-    "comment": "save program memory"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "POWER_LOSS_RECOVERY",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "SDCARD_SORT_ALPHA",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "SDSORT_LIMIT",
-    "value": "50",
-    "comment": "Increase number of sorted items"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "SDSORT_GCODE",
-    "value": "true",
-    "comment": "Allows disable file sort by M34 g-code"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "SDSORT_USES_RAM",
-    "value": "true",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "SDSORT_CACHE_NAMES",
-    "value": "true",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "SDSORT_DYNAMIC_RAM",
-    "value": "true",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "LONG_FILENAME_HOST_SUPPORT",
-    "comment": "Enabled"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "LONG_FILENAME_WRITE_SUPPORT",
-    "comment": "Enabled"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "SCROLL_LONG_FILENAMES",
-    "comment": "Enabled"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "BINARY_FILE_TRANSFER",
-    "comment": "Enabled for easy firmware upgrade"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "CUSTOM_FIRMWARE_UPLOAD",
-    "comment": "Enabled for easy firmware upgrade"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "NO_SD_HOST_DRIVE",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "BABYSTEPPING",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "BABYSTEP_WITHOUT_HOMING",
-    "comment": "Enabled BbS without home"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "BABYSTEP_ALWAYS_AVAILABLE",
-    "comment": "Active BbS always"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "ARC_P_CIRCLES",
-    "comment": "Enabled"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "MIN_STEPS_PER_SEGMENT",
-    "value": "4",
-    "comment": "Increase little movements accuracy"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "BUFSIZE",
-    "value": "16",
-    "comment": "Increase buffer for host"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "TX_BUFFER_SIZE",
-    "value": "64",
-    "comment": "Increase buffer for host"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "EMERGENCY_PARSER",
-    "comment": "Enabled instantaneous response to emergency commands"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "ADVANCED_OK",
-    "comment": "better management of buffer by host"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "FWRETRACT",
-    "comment": "Enabled support for firmware based retract"
-  },
-  {
-    "op": "Disable",
-    "searchfor": "FWRETRACT_AUTORETRACT",
-    "comment": "use slicer retract"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "RETRACT_ZRAISE",
-    "value": "0.2",
-    "comment": "Bowden"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "ADVANCED_PAUSE_FEATURE",
-    "comment": "Enabled"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "FILAMENT_CHANGE_UNLOAD_FEEDRATE",
-    "value": "25",
-    "comment": "Increased filament unload speed"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "FILAMENT_CHANGE_FAST_LOAD_FEEDRATE",
-    "value": "15",
-    "comment": "Increased filament load speed"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "PARK_HEAD_ON_PAUSE",
-    "comment": "Enabled park head when pause command was issued"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "FILAMENT_LOAD_UNLOAD_GCODES",
-    "comment": "Enabled load/unload Filament G-codes"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "PAUSE_PARK_NOZZLE_TIMEOUT",
-    "value": "90"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "NO_WORKSPACE_OFFSETS",
-    "comment": "Save flash space and simplify movements"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "NO_HOME_OFFSETS",
-    "comment": "Save flash space and simplify movements"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "EDGE_STEPPING",
-    "comment": "Pultrusion Configs"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "M115_GEOMETRY_REPORT",
-    "comment": "Enabled"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "HOST_ACTION_COMMANDS",
-    "comment": "Enabled actions from host"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "HOST_PROMPT_SUPPORT",
-    "comment": "Enabled responses from host"
-  },
-  {
-    "op": "Enable",
-    "searchfor": "CANCEL_OBJECTS",
-    "comment": "Enabled M486 to skip objects"
-  },
-  {
-    "op": "Disable",
-    "searchfor": "THERMAL_PROTECTION_VARIANCE_MONITOR",
-    "comment": "disabled because it gives false positives"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "STATUS_MESSAGE_TIMEOUT_SEC",
-    "value": "90",
-    "comment": "Enable Status Message Timeout"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "LCD_BACKLIGHT_TIMEOUT_MINS",
-    "value": "5"
-  },
-  {
-    "op": "CustomVal",
-    "searchfor": "PREHEAT_TIME_HOTEND_MS",
-    "value": "7500"
-  }
-],
-"Version.h" : [
-  {
-    "op": "Custom",
-    "searchfor": "SHORT_BUILD_VERSION",
-    "mask" : "\".*\"",
-    "value": "\"2.1.4 PET-Pultrusion\""
-  },
-  {
-    "op": "InsertAfter",
-    "searchfor": "#define STRING_DISTRIBUTION_DATE",
-    "newline": "\n#define STRING_DISTRIBUTION_DATE __DATE__\n#define STRING_DISTRIBUTION_TIME __TIME__"
-  },
-  {
-    "op": "Custom",
-    "searchfor": "SOURCE_CODE_URL",
-    "mask": "\".*\"",
-    "value": "\"github.com/mriscoc/Ender3V2S1\""
-  },
-  {
-    "op": "Custom",
-    "searchfor": "WEBSITE_URL",
-    "mask": "\".*\"",
-    "value": "\"github.com/mriscoc/Ender3V2S1/wiki\""
-  }
-]
+  "Configuration.h": [
+    {
+      "op": "InsertAfter",
+      "searchfor": "#pragma once",
+      "newline": "\n// Created by xXHenneBXx\n// PET Pultrusion Configurator\n// Based on Recreator MK* by Josh Taylor"
+    },
+    {
+      "op": "Custom",
+      "searchfor": "STRING_CONFIG_H_AUTHOR",
+      "mask": "\".*\"",
+      "value": "\"xXHenneBXx\""
+    },
+    {
+      "op": "Custom",
+      "searchfor": "CUSTOM_MACHINE_NAME",
+      "mask": "\".*\"",
+      "value": "\"~RECREATOR~\"",
+      "comment": "Custom machine name for pultrusion"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "CONFIGURABLE_MACHINE_NAME",
+      "comment": "Allow M550 to set/report machine name"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "PROBING_MARGIN",
+      "value": "10",
+      "comment": "Required by PROUI_EX"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "CUSTOM_VERSION_FILE"
+    },
+    {
+      "op": "InsertAfter",
+      "searchfor": "#define SERIAL_PORT",
+      "newline": "#define NO_AUTO_ASSIGN_WARNING  // Disable serial warnings"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "BAUDRATE",
+      "value": "250000",
+      "comment": "Increase serial performance"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "BAUD_RATE_GCODE",
+      "comment": "Enables change the baudrate"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "PIDTEMPBED",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "PID_AUTOTUNE_MENU",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "PID_EDIT_MENU",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "EXTRUDE_MINTEMP",
+      "value": "170",
+      "comment": "PET extrusion minimum temperature"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "EXTRUDE_MAXLENGTH",
+      "value": "5000",
+      "comment": "Pultrusion allows long extrusion"
+    },
+    {
+      "op": "Disable",
+      "searchfor": "THERMAL_PROTECTION_CHAMBER"
+    },
+    {
+      "op": "Disable",
+      "searchfor": "THERMAL_PROTECTION_COOLER"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "ENDSTOP_INTERRUPTS_FEATURE",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "InsertAfter",
+      "searchfor": "#define DEFAULT_AXIS_STEPS_PER_UNIT",
+      "newline": "\n#define LIMITED_MAX_STEPS_EDITING\n#if ENABLED(LIMITED_MAX_STEPS_EDITING)\n  #define MAX_STEPS_EDIT_VALUES       { 200, 200, 2000, 2000 }\n#endif"
+    },
+    {
+      "op": "Custom",
+      "searchfor": "DEFAULT_MAX_FEEDRATE",
+      "mask": "{.*}",
+      "value": "{ 500, 500, 10, 25 }",
+      "comment": "Pultrusion: lower E feedrate for steady pull"
+    },
+    {
+      "op": "InsertAfter",
+      "searchfor": "#define DEFAULT_MAX_FEEDRATE",
+      "newline": "\n#define DEFAULT_FEEDRATE_MM_M (25*60)"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "LIMITED_MAX_FR_EDITING",
+      "comment": "allows higher limits"
+    },
+    {
+      "op": "Custom",
+      "searchfor": "MAX_FEEDRATE_EDIT_VALUES",
+      "mask": "{.*}",
+      "value": "{ 3000, 3000, 80, 200 }",
+      "comment": "allows higher limits"
+    },
+    {
+      "op": "Custom",
+      "searchfor": "DEFAULT_MAX_ACCELERATION",
+      "mask": "{.*}",
+      "value": "{ 500, 500, 100, 1000 }",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "LIMITED_MAX_ACCEL_EDITING",
+      "comment": "allows higher limits"
+    },
+    {
+      "op": "Custom",
+      "searchfor": "MAX_ACCEL_EDIT_VALUES",
+      "mask": "{.*}",
+      "value": "{ 9999, 9999, 999, 9999 }",
+      "comment": "allows higher limits"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "DEFAULT_ACCELERATION",
+      "value": "500",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "DEFAULT_RETRACT_ACCELERATION",
+      "value": "800",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "DEFAULT_TRAVEL_ACCELERATION",
+      "value": "1000",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "Disable",
+      "searchfor": "CLASSIC_JERK",
+      "comment": "Enable JUNCTION DEVIATION"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "LIMITED_JERK_EDITING",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "Custom",
+      "searchfor": "MAX_JERK_EDIT_VALUES",
+      "mask": "{.*}",
+      "value": "{ 20, 20, 1, 20 }",
+      "comment": "allows higher limits"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "JUNCTION_DEVIATION_MM",
+      "value": "0.1"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "S_CURVE_ACCELERATION",
+      "comment": "Enabled"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "EEPROM_SETTINGS",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "EEPROM_AUTO_INIT",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "EEPROM_INIT_NOW",
+      "comment": "Reset EEPROM on first boot"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "PREHEAT_1_TEMP_HOTEND",
+      "value": "240",
+      "comment": "PET preheat"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "PREHEAT_1_TEMP_BED",
+      "value": "80",
+      "comment": "PET preheat"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "PREHEAT_1_FAN_SPEED",
+      "value": "128"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "PREHEAT_2_TEMP_HOTEND",
+      "value": "250",
+      "comment": "PETE preheat"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "PREHEAT_2_TEMP_BED",
+      "value": "90",
+      "comment": "PETE preheat"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "PREHEAT_2_FAN_SPEED",
+      "value": "128"
+    },
+    {
+      "op": "InsertAfter",
+      "searchfor": "#define PREHEAT_2_FAN_SPEED",
+      "newline": "\n#define PREHEAT_3_LABEL       \"PETE-HI\"\n#define PREHEAT_3_TEMP_HOTEND 260\n#define PREHEAT_3_TEMP_BED     90\n#define PREHEAT_3_FAN_SPEED   128\n\n#define PREHEAT_4_LABEL       \"CUSTOM\"\n#define PREHEAT_4_TEMP_HOTEND 190\n#define PREHEAT_4_TEMP_BED     50\n#define PREHEAT_4_FAN_SPEED   128"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "PRINTCOUNTER",
+      "comment": "Enable Pultrusion Statistics"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "SDSUPPORT",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "ENCODER_PULSES_PER_STEP",
+      "value": "4",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "ENCODER_STEPS_PER_MENU_ITEM",
+      "value": "1",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "LCD_FEEDBACK_FREQUENCY_DURATION_MS",
+      "value": "2",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "LCD_FEEDBACK_FREQUENCY_HZ",
+      "value": "5000",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "DWIN_LCD_PROUI"
+    },
+    {
+      "op": "InsertAfter",
+      "searchfor": "#define DWIN_LCD_PROUI",
+      "newline": "#define USE_STOCK_DWIN_SET\n\n// Pultrusion firmware features:"
+    },
+    {
+      "op": "InsertAfter",
+      "searchfor": "// Pultrusion firmware features:",
+      "newline": "#define ZHOME_BEFORE_LEVELING\n#define SMOOTH_ENCODER_MENUITEMS\n"
+    },
+    {
+      "op": "InsertAfter",
+      "searchfor": "// Pultrusion firmware features:",
+      "newline": "#if ENABLED(DWIN_LCD_PROUI)\n  #if PROUI_EX\n    #define HAS_TOOLBAR 1\n  #endif\n  #define HAS_CUSTOM_COLORS 1\n  #define HAS_CUSTOM_COLORS_MENU 1\n  #define HAS_PLOT 1\n  #define HAS_ESDIAG 1\n  #define HAS_LOCKSCREEN 1\n  #define HAS_FLOW_EDIT 1\n  #define HAS_FEEDRATE_EDIT 1\n  #define PREVIEW_MENU_ITEM\n  #define SHOW_REAL_POS\n  #define RUNOUT_TUNE_ITEM\n  #define PLR_TUNE_ITEM\n  #define MEDIASORT_MENU_ITEM\n  #define SHOW_SPEED_IND\n  #define NO_BLINK_IND\n#endif\n#define ZOFFSET_SAVE_SETTINGS"
+    },
+    {
+      "op": "InsertAfter",
+      "searchfor": "// Pultrusion firmware features:",
+      "newline": "#define PROUI_EX 1\n#if PROUI_EX\n  #if ENABLED(FILAMENT_RUNOUT_SENSOR)\n    #define HAS_PROUI_RUNOUT_SENSOR 1\n  #endif\n  #if ENABLED(EXTRUDERS)\n    #define HAS_PROUI_MAXTEMP 1\n  #endif\n  #define HAS_CGCODE 1\n#endif"
+    },
+    {
+      "op": "Disable",
+      "searchfor": "ZOFFSET_SAVE_SETTINGS"
+    },
+    {
+      "op": "Disable",
+      "searchfor": "NO_BLINK_IND"
+    },
+    {
+      "op": "Disable",
+      "searchfor": "MEDIASORT_MENU_ITEM"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "FAN_SOFT_PWM",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "FILAMENT_RUNOUT_SENSOR",
+      "comment": "Pultrusion: filament runout sensor support"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "FIL_RUNOUT_ENABLED_DEFAULT",
+      "value": "false"
+    }
+  ],
+  "Configuration_adv.h": [
+    {
+      "op": "InsertAfter",
+      "searchfor": "#pragma once",
+      "newline": "\n// Created by xXHenneBXx\n// PET Pultrusion Configurator"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "WATCH_TEMP_PERIOD",
+      "value": "40",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "THERMAL_PROTECTION_BED_PERIOD",
+      "value": "180",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "WATCH_BED_TEMP_PERIOD",
+      "value": "180",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "HOTEND_IDLE_TIMEOUT",
+      "comment": "Disable heaters after timeout"
+    },
+    {
+      "op": "Custom",
+      "searchfor": "HOTEND_IDLE_TIMEOUT_SEC",
+      "mask": "\\([0-9,*]+\\)",
+      "value": "(10*60)",
+      "comment": "10 minutes for heaters timeout"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "HOTEND_IDLE_MIN_TRIGGER",
+      "value": "(EXTRUDE_MINTEMP - 10)",
+      "comment": "set idle trigger lower than EXTRUDE_MINTEMP"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "FAN_MIN_PWM",
+      "value": "50",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "ADAPTIVE_STEP_SMOOTHING"
+    },
+    {
+      "op": "InsertAfter",
+      "searchfor": "#if ENABLED\\(ENCODER_RATE_MULTIPLIER\\)",
+      "newline": "  #define ENCODER_5X_STEPS_PER_SEC    30  // Pultrusion Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "ENCODER_10X_STEPS_PER_SEC",
+      "value": "80",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "ENCODER_100X_STEPS_PER_SEC",
+      "value": "130",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "BOOTSCREEN_TIMEOUT",
+      "value": "1100"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "SHOW_CUSTOM_BOOTSCREEN",
+      "comment": "Show custom boot screen bitmap"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "CUSTOM_STATUS_SCREEN_IMAGE",
+      "comment": "Show custom status screen bitmap"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "SOUND_MENU_ITEM",
+      "comment": "Enable Sound Menu Item"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "STATUS_MESSAGE_SCROLLING",
+      "comment": "Allows scrolling of large status messages"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "SET_PROGRESS_MANUALLY",
+      "comment": "Allows display feedback of host printing through GCode M73"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "SET_PROGRESS_PERCENT",
+      "comment": "Allows display feedback of host printing through GCode M73"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "SET_REMAINING_TIME",
+      "comment": "Allows display feedback of host printing through GCode M73"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "SHOW_REMAINING_TIME",
+      "comment": "Allows display remaining time"
+    },
+    {
+      "op": "Disable",
+      "searchfor": "SD_PROCEDURE_DEPTH",
+      "comment": "save program memory"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "POWER_LOSS_RECOVERY",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "SDCARD_SORT_ALPHA",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "SDSORT_LIMIT",
+      "value": "50",
+      "comment": "Increase number of sorted items"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "SDSORT_GCODE",
+      "value": "true",
+      "comment": "Allows disable file sort by M34 g-code"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "SDSORT_USES_RAM",
+      "value": "true",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "SDSORT_CACHE_NAMES",
+      "value": "true",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "SDSORT_DYNAMIC_RAM",
+      "value": "true",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "LONG_FILENAME_HOST_SUPPORT",
+      "comment": "Enabled"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "LONG_FILENAME_WRITE_SUPPORT",
+      "comment": "Enabled"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "SCROLL_LONG_FILENAMES",
+      "comment": "Enabled"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "BINARY_FILE_TRANSFER",
+      "comment": "Enabled for easy firmware upgrade"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "CUSTOM_FIRMWARE_UPLOAD",
+      "comment": "Enabled for easy firmware upgrade"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "NO_SD_HOST_DRIVE",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "BABYSTEPPING",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "BABYSTEP_WITHOUT_HOMING",
+      "comment": "Enabled BbS without home"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "BABYSTEP_ALWAYS_AVAILABLE",
+      "comment": "Active BbS always"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "ARC_P_CIRCLES",
+      "comment": "Enabled"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "MIN_STEPS_PER_SEGMENT",
+      "value": "4",
+      "comment": "Increase little movements accuracy"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "BUFSIZE",
+      "value": "16",
+      "comment": "Increase buffer for host"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "TX_BUFFER_SIZE",
+      "value": "64",
+      "comment": "Increase buffer for host"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "EMERGENCY_PARSER",
+      "comment": "Enabled instantaneous response to emergency commands"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "ADVANCED_OK",
+      "comment": "better management of buffer by host"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "FWRETRACT",
+      "comment": "Enabled support for firmware based retract"
+    },
+    {
+      "op": "Disable",
+      "searchfor": "FWRETRACT_AUTORETRACT",
+      "comment": "use slicer retract"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "RETRACT_ZRAISE",
+      "value": "0.2",
+      "comment": "Bowden"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "ADVANCED_PAUSE_FEATURE",
+      "comment": "Enabled"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "FILAMENT_CHANGE_UNLOAD_FEEDRATE",
+      "value": "25",
+      "comment": "Increased filament unload speed"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "FILAMENT_CHANGE_FAST_LOAD_FEEDRATE",
+      "value": "15",
+      "comment": "Increased filament load speed"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "PARK_HEAD_ON_PAUSE",
+      "comment": "Enabled park head when pause command was issued"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "FILAMENT_LOAD_UNLOAD_GCODES",
+      "comment": "Enabled load/unload Filament G-codes"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "PAUSE_PARK_NOZZLE_TIMEOUT",
+      "value": "90"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "NO_WORKSPACE_OFFSETS",
+      "comment": "Save flash space and simplify movements"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "NO_HOME_OFFSETS",
+      "comment": "Save flash space and simplify movements"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "EDGE_STEPPING",
+      "comment": "Pultrusion Configs"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "M115_GEOMETRY_REPORT",
+      "comment": "Enabled"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "HOST_ACTION_COMMANDS",
+      "comment": "Enabled actions from host"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "HOST_PROMPT_SUPPORT",
+      "comment": "Enabled responses from host"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "CANCEL_OBJECTS",
+      "comment": "Enabled M486 to skip objects"
+    },
+    {
+      "op": "Disable",
+      "searchfor": "THERMAL_PROTECTION_VARIANCE_MONITOR",
+      "comment": "disabled because it gives false positives"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "STATUS_MESSAGE_TIMEOUT_SEC",
+      "value": "90",
+      "comment": "Enable Status Message Timeout"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "LCD_BACKLIGHT_TIMEOUT_MINS",
+      "value": "5"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "PREHEAT_TIME_HOTEND_MS",
+      "value": "7500"
+    }
+  ],
+  "Version.h": [
+    {
+      "op": "Custom",
+      "searchfor": "SHORT_BUILD_VERSION",
+      "mask": "\".*\"",
+      "value": "\"2.1.4 PET-Pultrusion\""
+    },
+    {
+      "op": "InsertAfter",
+      "searchfor": "#define STRING_DISTRIBUTION_DATE",
+      "newline": "\n#define STRING_DISTRIBUTION_DATE __DATE__\n#define STRING_DISTRIBUTION_TIME __TIME__"
+    },
+    {
+      "op": "Custom",
+      "searchfor": "SOURCE_CODE_URL",
+      "mask": "\".*\"",
+      "value": "\"github.com/xXHenneBXx/Pultrusion\""
+    },
+    {
+      "op": "Custom",
+      "searchfor": "WEBSITE_URL",
+      "mask": "\".*\"",
+      "value": "\"github.com/xXHenneBXx/Pultrusion/wiki\""
+    }
+  ]
 }

@@ -3,7 +3,7 @@
 # PET Pultrusion Configurator
 # Generates Marlin configuration files for PET/PETE pultrusion systems
 # Based on Recreator MK* by Josh Taylor
-# Derived from Professional Firmware Configurator by MRiscoC
+# Derived from Professional Firmware Configurator by MRiscoC, adapted by xXHenneBXx
 # ------------------------------------------------------------------------------
 
 import os

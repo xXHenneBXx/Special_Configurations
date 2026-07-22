@@ -192,7 +192,7 @@
       "op": "Custom",
       "searchfor": "MACHINE_NAME",
       "mask": "\".+\"",
-      "value": "\"Custom Pultrusion\""
+      "value": "\"~RECREATOR~\""
     }
   ]
 }
