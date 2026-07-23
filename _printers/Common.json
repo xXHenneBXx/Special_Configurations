@@ -168,9 +168,25 @@
       "comment": "Required by PROUI_EX"
     },
     {
-      "op": "InsertAfter",
-      "searchfor": "#pragma once",
-      "newline": "\n#ifndef GRID_MAX_POINTS_X\n  #define GRID_MAX_POINTS_X 4\n#endif\n#ifndef GRID_MAX_POINTS_Y\n  #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X\n#endif\n"
+      "op": "Enable",
+      "searchfor": "FIX_MOUNTED_PROBE",
+      "comment": "Dummy probe - satisfies Marlin probe macros for UBL/PROUI_EX compilation"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "AUTO_BED_LEVELING_UBL",
+      "comment": "Required by PROUI_EX - redundant for pultrusion but needed to compile"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "GRID_MAX_POINTS_X",
+      "value": "4",
+      "comment": "Must be less than 10 for PROUI_EX"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "GRID_MAX_POINTS_Y",
+      "value": "GRID_MAX_POINTS_X"
     },
     {
       "op": "Enable",

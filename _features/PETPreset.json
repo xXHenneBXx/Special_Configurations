@@ -33,8 +33,8 @@
     {
       "op": "CustomVal",
       "searchfor": "PREHEAT_1_TEMP_BED",
-      "value": "80",
-      "comment": "PET bed preheat"
+      "value": "0",
+      "comment": "No bed in pultrusion"
     },
     {
       "op": "CustomVal",
@@ -45,8 +45,8 @@
     {
       "op": "CustomVal",
       "searchfor": "PREHEAT_2_TEMP_BED",
-      "value": "90",
-      "comment": "PETE bed preheat"
+      "value": "0",
+      "comment": "No bed in pultrusion"
     },
     {
       "op": "CustomVal",
