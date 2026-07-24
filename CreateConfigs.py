@@ -163,10 +163,10 @@ def CustomizeFile(Machine_Name, SourceDir, TargetDir, Mode, config) :
     if not error:
       if Machine_Name :
         lines = lines.replace('//#define CUSTOM_MACHINE_NAME "3D Printer"','#define CUSTOM_MACHINE_NAME "'+Machine_Name+'"')
-        lines = lines.replace('//#define DETAILED_BUILD_VERSION SHORT_BUILD_VERSION','#if ENABLED(IS_DEMO)\n  #define DETAILED_BUILD_VERSION SHORT_BUILD_VERSION " DEMO, NOT FOR PRODUCTION"\n#else\n  #define DETAILED_BUILD_VERSION SHORT_BUILD_VERSION " '+Machine_Name+', based on bugfix-2.1.x"\n#endif')
+        lines = lines.replace('//#define DETAILED_BUILD_VERSION SHORT_BUILD_VERSION','#if ENABLED(IS_DEMO)\n  #define DETAILED_BUILD_VERSION SHORT_BUILD_VERSION " DEMO, NOT FOR PRODUCTION"\n#else\n  #define DETAILED_BUILD_VERSION SHORT_BUILD_VERSION " '+Machine_Name+', based on 2.1.2.8"\n#endif')
       else :
         lines = lines.replace('//#define CUSTOM_MACHINE_NAME "3D Printer"','#define CUSTOM_MACHINE_NAME "'+' '.join(Mode)+'"')
-        lines = lines.replace('//#define DETAILED_BUILD_VERSION SHORT_BUILD_VERSION','#if ENABLED(IS_DEMO)\n  #define DETAILED_BUILD_VERSION SHORT_BUILD_VERSION " DEMO, NOT FOR PRODUCTION"\n#else\n  #define DETAILED_BUILD_VERSION SHORT_BUILD_VERSION " '+' '.join(Mode)+', based on bugfix-2.1.x"\n#endif')
+        lines = lines.replace('//#define DETAILED_BUILD_VERSION SHORT_BUILD_VERSION','#if ENABLED(IS_DEMO)\n  #define DETAILED_BUILD_VERSION SHORT_BUILD_VERSION " DEMO, NOT FOR PRODUCTION"\n#else\n  #define DETAILED_BUILD_VERSION SHORT_BUILD_VERSION " '+' '.join(Mode)+', based on 2.1.2.8"\n#endif')
 
     with open(Target, "w", encoding="utf8") as of:
       of.write(lines)

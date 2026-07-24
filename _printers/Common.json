@@ -20,8 +20,13 @@
     },
     {
       "op": "Enable",
-      "searchfor": "CONFIGURABLE_MACHINE_NAME",
-      "comment": "Allow M550 to set/report machine name"
+      "searchfor": "SHOW_CUSTOM_BOOTSCREEN",
+      "comment": "Show custom boot screen bitmap"
+    },
+    {
+      "op": "Enable",
+      "searchfor": "CUSTOM_STATUS_SCREEN_IMAGE",
+      "comment": "Show custom status screen bitmap"
     },
     {
       "op": "CustomVal",
@@ -241,28 +246,13 @@
     {
       "op": "Enable",
       "searchfor": "GCODE_QUOTED_STRINGS",
-      "comment": "Required by CONFIGURABLE_MACHINE_NAME"
-    },
-    {
-      "op": "Enable",
-      "searchfor": "SHOW_BOOTSCREEN",
-      "comment": "Show boot screen on startup"
+      "comment": "Required by PROUI_EX custom G-code support"
     },
     {
       "op": "CustomVal",
       "searchfor": "BOOTSCREEN_TIMEOUT",
       "value": "1100",
       "comment": "Boot screen display duration"
-    },
-    {
-      "op": "Enable",
-      "searchfor": "SHOW_CUSTOM_BOOTSCREEN",
-      "comment": "Show custom boot screen bitmap"
-    },
-    {
-      "op": "Enable",
-      "searchfor": "CUSTOM_STATUS_SCREEN_IMAGE",
-      "comment": "Show custom status screen bitmap"
     },
     {
       "op": "Disable",
@@ -302,7 +292,7 @@
       "op": "Custom",
       "searchfor": "SHORT_BUILD_VERSION",
       "mask": "\".*\"",
-      "value": "\"2.1.4 PET-Pultrusion\""
+      "value": "\"2.1.2.8 PET-Pultrusion\""
     },
     {
       "op": "Custom",

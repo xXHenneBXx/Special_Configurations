@@ -1,10 +1,5 @@
 {
 "Configuration.h" : [
-  {
-    "op": "Disable",
-    "searchfor": "PLR_TUNE_ITEM",
-    "comment": "  // Enable only if Power loss recovery is enabled"
-  }
 ],
 "Configuration_adv.h" : [
   {

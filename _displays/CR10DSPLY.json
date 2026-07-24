@@ -20,6 +20,14 @@
     "op": "InsertAfter",
     "searchfor": "#define CR10_STOCKDISPLAY",
     "newline": "#if ENABLED(CR10_STOCKDISPLAY)\n  #define RET6_12864_LCD  // Specific to the SoC (can either be RET / VET)\n#endif"
+  },
+  {
+    "op": "Disable",
+    "searchfor": "SHOW_CUSTOM_BOOTSCREEN"
+  },
+  {
+    "op": "Disable",
+    "searchfor": "CUSTOM_STATUS_SCREEN_IMAGE"
   }
 ],
 "Configuration_adv.h" : [
@@ -40,18 +48,10 @@
     "searchfor": "BOOTSCREEN_TIMEOUT",
     "value": "1000",
     "comment": "Simulator"
-  },
-  {
-    "op": "Disable",
-    "searchfor": "SHOW_CUSTOM_BOOTSCREEN"
-  },
-  {
-    "op": "Disable",
-    "searchfor": "CUSTOM_STATUS_SCREEN_IMAGE"
   }
 ],
 "Version.h" : [
-],   
+],
 "platformio.ini" : [
-]   
+]
 }

@@ -69,21 +69,21 @@
   },
   {
     "op": "CustomVal",
-    "searchfor": "X_MIN_ENDSTOP_HIT_STATE",
-    "value": "LOW",
-    "comment": "Board v301 Configs"
+    "searchfor": "X_MIN_ENDSTOP_INVERTING",
+    "value": "false",
+    "comment": "Board v301 - low when triggered"
   },
   {
     "op": "CustomVal",
-    "searchfor": "Y_MIN_ENDSTOP_HIT_STATE",
-    "value":"LOW",
-    "comment": "Board v301 Configs"
+    "searchfor": "Y_MIN_ENDSTOP_INVERTING",
+    "value": "false",
+    "comment": "Board v301 - low when triggered"
   },
   {
     "op": "CustomVal",
-    "searchfor": "Z_MIN_ENDSTOP_HIT_STATE",
-    "value": "HIGH",
-    "comment": "Board v301 Configs"
+    "searchfor": "Z_MIN_ENDSTOP_INVERTING",
+    "value": "true",
+    "comment": "Board v301 - high when triggered"
   },
   {
     "op": "CustomVal",
