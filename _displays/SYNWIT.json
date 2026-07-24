@@ -4,6 +4,16 @@
     "op": "InsertAfter",
     "searchfor": "#define DWIN_LCD_PROUI",
     "newline": "#define SYNWIT_DISPLAY"
+  },
+  {
+    "op": "Enable",
+    "searchfor": "SHOW_CUSTOM_BOOTSCREEN",
+    "comment": "Graphical LCD custom boot screen"
+  },
+  {
+    "op": "Enable",
+    "searchfor": "CUSTOM_STATUS_SCREEN_IMAGE",
+    "comment": "Graphical LCD custom status screen"
   }
 ],
 "Configuration_adv.h" : [

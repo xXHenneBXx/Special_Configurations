@@ -20,13 +20,8 @@
     },
     {
       "op": "Enable",
-      "searchfor": "SHOW_CUSTOM_BOOTSCREEN",
-      "comment": "Show custom boot screen bitmap"
-    },
-    {
-      "op": "Enable",
-      "searchfor": "CUSTOM_STATUS_SCREEN_IMAGE",
-      "comment": "Show custom status screen bitmap"
+      "searchfor": "FAN_SOFT_PWM",
+      "comment": "Required for all Creality boards - hardware PWM fan control"
     },
     {
       "op": "CustomVal",

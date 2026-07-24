@@ -1,0 +1,36 @@
+{
+"Configuration.h" : [
+  {
+    "op": "Enable",
+    "searchfor": "BLTOUCH",
+    "comment": "BLTouch probe - Hall effect sensor emulating servo"
+  },
+  {
+    "op": "Custom",
+    "mask": "\\{[^}]+\\}",
+    "searchfor": "NOZZLE_TO_PROBE_OFFSET",
+    "value": "{ -44, -12, -0.9 }",
+    "comment": "BLTouch offset from nozzle"
+  },
+  {
+    "op": "Enable",
+    "searchfor": "Z_MIN_PROBE_REPEATABILITY_TEST",
+    "comment": "M48 probe repeatability test"
+  }
+],
+"Configuration_adv.h" : [
+  {
+    "op": "CustomVal",
+    "searchfor": "BLTOUCH_DELAY",
+    "value": "500",
+    "comment": "BLTouch deploy/stow delay in ms"
+  },
+  {
+    "op": "Enable",
+    "searchfor": "BLTOUCH_HS_MODE",
+    "comment": "BLTouch high-speed mode for faster probing"
+  }
+],
+"Version.h" : [
+]
+}

@@ -1,0 +1,53 @@
+{
+"Configuration.h" : [
+  {
+    "op": "Enable",
+    "searchfor": "PROBE_MANUALLY",
+    "comment": "Manual probing - no probe hardware required"
+  },
+  {
+    "op": "Enable",
+    "searchfor": "LCD_BED_LEVELING",
+    "comment": "Add bed leveling menu to LCD"
+  },
+  {
+    "op": "Enable",
+    "searchfor": "MESH_BED_LEVELING",
+    "comment": "Manual mesh bed leveling - step-by-step LCD guided"
+  },
+  {
+    "op": "CustomVal",
+    "searchfor": "GRID_MAX_POINTS_X",
+    "value": "3",
+    "comment": "Manual mesh grid (max 7 for MBL)"
+  },
+  {
+    "op": "CustomVal",
+    "searchfor": "GRID_MAX_POINTS_Y",
+    "value": "GRID_MAX_POINTS_X"
+  },
+  {
+    "op": "Enable",
+    "searchfor": "RESTORE_LEVELING_AFTER_G28",
+    "comment": "Restore leveling state after homing"
+  }
+],
+"Configuration_adv.h" : [
+  {
+    "op": "Enable",
+    "searchfor": "BABYSTEPPING",
+    "comment": "Enable babystepping for Z micro-adjustments"
+  },
+  {
+    "op": "Enable",
+    "searchfor": "DOUBLECLICK_FOR_Z_BABYSTEPPING"
+  },
+  {
+    "op": "Enable",
+    "searchfor": "BABYSTEP_ZPROBE_OFFSET",
+    "comment": "Allow babystepping to adjust probe offset"
+  }
+],
+"Version.h" : [
+]
+}
