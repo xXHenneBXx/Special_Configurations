@@ -1,0 +1,99 @@
+{
+  "Configuration.h": [
+    {
+      "op": "CustomVal",
+      "searchfor": "INVERT_X_DIR",
+      "value": "false"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "INVERT_Y_DIR",
+      "value": "false"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "INVERT_Z_DIR",
+      "value": "true"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "INVERT_E0_DIR",
+      "value": "true",
+      "comment": "Pultrusion pull direction"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "TEMP_SENSOR_BED",
+      "value": "0",
+      "comment": "Not Needed"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "HEATER_0_MINTEMP",
+      "value": "5",
+      "comment": "Recreator MK3 Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "HEATER_0_MAXTEMP",
+      "value": "260",
+      "comment": "Recreator MK3 hotend max"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "DEFAULT_KP",
+      "value": "22.89"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "DEFAULT_KI",
+      "value": "1.87"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "DEFAULT_KD",
+      "value": " 70.18"
+    },
+    {
+      "op": "Custom",
+      "searchfor": "DEFAULT_AXIS_STEPS_PER_UNIT",
+      "mask": "{.*}",
+      "value": "{ 80, 80, 400, 130 }",
+      "comment": "Recreator MK3: higher E steps for pultrusion drive"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "DEFAULT_EJERK",
+      "value": "5.0",
+      "comment": "Recreator MK3 Configs"
+    }
+  ],
+  "Configuration_adv.h": [
+    {
+      "op": "CustomVal",
+      "searchfor": "RETRACT_LENGTH",
+      "value": "3",
+      "comment": "Recreator MK3 direct-drive style"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "RETRACT_FEEDRATE",
+      "value": "40",
+      "comment": "Recreator MK3 Configs"
+    },
+    {
+      "op": "CustomVal",
+      "searchfor": "RETRACT_RECOVER_FEEDRATE",
+      "value": "40",
+      "comment": "Recreator MK3 Configs"
+    }
+  ],
+  "Version.h": [
+    {
+      "op": "Custom",
+      "searchfor": "MACHINE_NAME",
+      "mask": "\".+\"",
+      "value": "\"Recreator\""
+    }
+  ]
+}
