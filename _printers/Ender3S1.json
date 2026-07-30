@@ -111,37 +111,37 @@
     "op": "CustomVal",
     "searchfor": "X_BED_SIZE",
     "value": "220",
-    "comment": "MRiscoC Max usable bed size"
+    "comment": "Max usable bed size"
   },
   {
     "op": "CustomVal",
     "searchfor": "Y_BED_SIZE",
     "value": "220",
-    "comment": "MRiscoC Max usable bed size"
+    "comment": "Max usable bed size"
   },
   {
     "op": "CustomVal",
     "searchfor": "X_MIN_POS",
     "value": "-10",
-    "comment": "MRiscoC Stock physical limit"
+    "comment": "Stock physical limit"
   },
   {
     "op": "CustomVal",
     "searchfor": "Y_MIN_POS",
     "value": "-8",
-    "comment": "MRiscoC Stock physical limit"
+    "comment": "Stock physical limit"
   },
   {
     "op": "CustomVal",
     "searchfor": "X_MAX_POS",
     "value": "230",
-    "comment": "MRiscoC Stock physical limit"
+    "comment": "Stock physical limit"
   },
   {
     "op": "CustomVal",
     "searchfor": "Y_MAX_POS",
     "value": "220",
-    "comment": "MRiscoC Stock physical limit"
+    "comment": "Stock physical limit"
   },
   {
     "op": "CustomVal",
@@ -153,13 +153,13 @@
     "op": "CustomVal",
     "searchfor": "FILAMENT_RUNOUT_DISTANCE_MM",
     "value": "200",
-    "comment": "MRiscoC Customizable by menu"
+    "comment": "Customizable by menu"
   },
   {
     "op": "CustomVal",
     "searchfor": "MESH_INSET",
     "value": "38",
-    "comment": "MRiscoC Center mesh"
+    "comment": "Center mesh"
   },
   {
     "op": "Disable",
@@ -189,25 +189,25 @@
   {
     "op": "CustomVal",
     "searchfor": "TRAMMING_SCREW_THREAD",
-    "value": "M4_CW"
+    "value": "40"
   },
   {
     "op": "CustomVal",
     "searchfor": "RETRACT_LENGTH",
     "value": "1",
-    "comment": "MRiscoC Directdrive"
+    "comment": "Directdrive"
   },
   {
     "op": "CustomVal",
     "searchfor": "RETRACT_FEEDRATE",
     "value": "40",
-    "comment": "MRiscoC Bowden"
+    "comment": "Bowden"
   },
   {
     "op": "CustomVal",
     "searchfor": "RETRACT_RECOVER_FEEDRATE",
     "value": "40",
-    "comment": "MRiscoC Bowden"
+    "comment": "Bowden"
   },
   {
     "op": "Custom",

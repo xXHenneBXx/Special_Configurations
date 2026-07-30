@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
 # ------------------------------------------------------------------------------
-# PET Pultrusion Configurator
-# Generates Marlin configuration files for PET/PETE pultrusion systems
-# Based on Recreator MK* by Josh Taylor
-# Derived from Professional Firmware Configurator by MRiscoC, adapted by xXHenneBXx
+# Pro FW Configurator
+# Generates Marlin configuration files for V2.1.2.8
+# Created by xXHenneBXx
+# Professional Firmware Configurator + ProUI by MRiscoC
+# URL: https://github.com/xXHenneBXx/Special_Configurations
+# version: 1.0
+# date: 2026/07/25 
 # ------------------------------------------------------------------------------
 
 import os
@@ -103,14 +106,20 @@ class ModernStyle:
 def fill_conf(obj):
     global ConfigList
     ConfigList.clear()
+
     if obj.printer.get():
         ConfigList.append(obj.printer.get())
     if obj.board.get():
         ConfigList.append(obj.board.get())
+    if obj.leveling.get():
+        ConfigList.append(obj.leveling.get())
+    if obj.ubl.get():
+        ConfigList.append("UBL")
     if not obj.display.get() == "DWIN":
         ConfigList.append(obj.display.get())
     if not obj.thermistor.get() == "T1":
         ConfigList.append(obj.thermistor.get())
+    
     for checkbox in obj.featurelist:
         if checkbox.instate(["selected"]):
             ConfigList.append(checkbox.cget("text"))
@@ -131,7 +140,7 @@ def generate_conf():
     else:
         messagebox.showinfo(
             message="Configuration files generated successfully.",
-            title="PET Pultrusion Configurator",
+            title="Pro FW",
         )
 
 
@@ -147,8 +156,13 @@ def copy_clpbrd():
 def auto_name():
     fill_conf(root)
     name = "-".join(ConfigList)
-    # Clean up naming for pultrusion profiles
-    name = name.replace("301F", "F").replace("F1-", "F1").replace("F4-", "F4")
+   #filter S1 printer name
+    Name = Name.replace("-301F","-F").replace("F1-BLT","F1").replace("F4-BLT","F4")
+    #filter UBL
+    if "F1-UBL" not in Name and "F4-UBL" not in Name:
+      Name = Name.replace("-UBL","UBL")
+    #rename LinaAdv
+    #Name = Name.replace("LinAdv","LA") 
     root.ConfigName.delete(0, END)
     root.ConfigName.insert(0, name)
     root.update_conf()
@@ -159,7 +173,7 @@ class Main(tk.Tk):
         super().__init__(*args, **kwargs)
         self.configure(width=960, height=620, bg=COLOR_BG)
         self.resizable(False, False)
-        self.title("PET Pultrusion Configurator")
+        self.title("Pro FW Configurator")
 
         # Apply modern style
         self.style = ttk.Style(self)
@@ -171,7 +185,7 @@ class Main(tk.Tk):
         self.header.configure(height=70)
 
         self.title_label = ttk.Label(
-            self.header, text="PET PULTRUSION CONFIGURATOR",
+            self.header, text="Advanced Pro Firmware Configurator",
             style="Title.TLabel"
         )
         # Override bg for header label
@@ -180,7 +194,7 @@ class Main(tk.Tk):
 
         self.subtitle_label = ttk.Label(
             self.header,
-            text="Marlin firmware configuration for PET/PETE bottle-to-filament pultrusion systems  |  Based on Recreator MK* by Josh Taylor",
+            text="Marlin firmware configurations With Additional Pulltrusion Features",
             style="PanelDim.TLabel"
         )
         self.subtitle_label.place(x=24, y=40)
@@ -201,7 +215,7 @@ class Main(tk.Tk):
         self.l1.pack(side="left", padx=(0, 8))
 
         self.ConfigName = ttk.Entry(self.name_frame, width=55)
-        self.ConfigName.insert(0, "MyPultrusionConfig")
+        self.ConfigName.insert(0, "MyConfig")
         self.ConfigName.pack(side="left", padx=(0, 8), fill="x", expand=True)
 
         self.boton1 = ttk.Button(self.name_frame, text="Auto Name", command=auto_name)
@@ -235,9 +249,10 @@ class Main(tk.Tk):
         # Build selection columns
         self._build_printer_col(self.scrollable, 0)
         self._build_board_col(self.scrollable, 1)
-        self._build_display_col(self.scrollable, 2)
-        self._build_thermistor_col(self.scrollable, 3)
-        self._build_features_col(self.scrollable, 4)
+        self._build_leveling_col(self.scrollable, 2)
+        self._build_display_col(self.scrollable, 3)
+        self._build_thermistor_col(self.scrollable, 4)
+        self._build_features_col(self.scrollable, 5)
 
         # ─── Bottom action area ──────────────────────────────────────────
         self.bottom = ttk.Frame(self.content)
@@ -317,6 +332,26 @@ class Main(tk.Tk):
                                      value=value, command=set_conf)
                 rb.pack(anchor="w", pady=1)
 
+    def _build_leveling_col(self, parent, col):
+        inner = self._make_panel(parent, col, "LEVELING")
+
+        self.leveling = tk.StringVar(self, "BLT")
+        self.levelinglist = []
+        for file in sorted(os.listdir("_leveling")):
+            if file.endswith(".json") and not file.endswith("UBL.json"):
+                value = file.replace(".json", "")
+                rb = ttk.Radiobutton(inner, text=value, variable=self.leveling,
+                                     value=value, command=self.set_ubl)
+                rb.pack(anchor="w", pady=1)
+                self.levelinglist.append(rb)
+
+        # UBL is a dependent checkbox, not a leveling method itself -
+        # it's disabled automatically for manual mesh ("MM") leveling
+        self.ubl = tk.BooleanVar(self, True)
+        self.ublchkb = ttk.Checkbutton(inner, text="UBL", variable=self.ubl,
+                                       command=set_conf)
+        self.ublchkb.pack(anchor="w", pady=(6, 1))
+
     def _build_display_col(self, parent, col):
         inner = self._make_panel(parent, col, "DISPLAY")
 
@@ -357,6 +392,14 @@ class Main(tk.Tk):
         self.Edit_GenFunc.insert(END, f"CreateConfigs.Generate('{name}',[")
         self.Edit_GenFunc.insert(END, ",".join(f"'{item}'" for item in ConfigList))
         self.Edit_GenFunc.insert(END, "])")
+                                                 
+    def set_ubl(self):
+        if self.leveling.get() == "MM":
+            self.ubl.set(False)
+            self.ublchkb.configure(state="disabled")
+        else:
+            self.ublchkb.configure(state="enabled")
+        set_conf()
 
     def open_log(self):
         try:

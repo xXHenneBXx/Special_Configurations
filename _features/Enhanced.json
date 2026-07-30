@@ -1,0 +1,45 @@
+{
+"Configuration.h" : [
+  {
+    "op": "Enable",
+    "searchfor": "DISABLE_REDUCED_ACCURACY_WARNING",
+    "comment": "Suppress warning when moving at reduced accuracy during travel"
+  },
+  {
+    "op": "Enable",
+    "searchfor": "Z_IDLE_HEIGHT",
+    "comment": "Prevent Z-axis drift when steppers disabled"
+  },
+  {
+    "op": "CustomVal",
+    "searchfor": "Z_AFTER_HOMING",
+    "value": "10",
+    "comment": "Move Z to 10mm after homing for clearance"
+  }
+],
+"Configuration_adv.h" : [
+  {
+    "op": "Enable",
+    "searchfor": "INTEGRATED_BABYSTEPPING",
+    "comment": "EXPERIMENTAL - integrated babystepping in Stepper ISR for smoother micro-adjustments"
+  },
+  {
+    "op": "Enable",
+    "searchfor": "NO_FAN_SLOWING_IN_PID_TUNING",
+    "comment": "Keep fan speed constant during M303 PID tuning"
+  },
+  {
+    "op": "CustomVal",
+    "searchfor": "MILLISECONDS_PREHEAT_TIME",
+    "value": "50",
+    "comment": "Preheat time in ms for stable temperature readings"
+  },
+  {
+    "op": "Enable",
+    "searchfor": "ALLOW_LOW_EJERK",
+    "comment": "Allow low E jerk - recommended for direct drive extruders"
+  }
+],
+"Version.h" : [
+]
+}

@@ -178,7 +178,7 @@
   {
     "op": "CustomVal",
     "searchfor": "TRAMMING_SCREW_THREAD",
-    "value": "M4_CW"
+    "value": "40"
   },
   {
     "op": "CustomVal",

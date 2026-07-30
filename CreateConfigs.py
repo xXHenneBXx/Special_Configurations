@@ -3,9 +3,9 @@
 # ------------------------------------------------------------------------------
 # Configurations generator script for the Professional Firmware
 # Author: xXHenneBXx
-# URL: https://github.com/xXHenneBXx/Pultrusion
-# version: 6.2
-# date: 2022/11/05
+# URL: https://github.com/xXHenneBXx/Special_Configurations
+# version: 1.0
+# date: 2026/07/25
 # ------------------------------------------------------------------------------
 
 import re
@@ -147,7 +147,7 @@ def CustomizeFile(Machine_Name, SourceDir, TargetDir, Mode, config) :
     if verbose: log(">>>> using: _printers/Common.json")
     lines = ProcessLines("_printers/Common.json", config)
 
-    PathConfig = ['_printers/','_boards/','_displays/','_thermistor/','_features/']
+    PathConfig = ['_printers/','_boards/','_leveling/','_displays/','_thermistor/','_features/']
     for val in Mode:
       for path in PathConfig:
         JsonFile = path + val + '.json'
@@ -187,9 +187,9 @@ def Generate(Machine_Name, Mode) :
   loglines = ""
   print()
 
-  log('PET Pultrusion Configurations Generator')
-  log('Based on Recreator MK* by Josh Taylor')
-  log('Derived from Professional Firmware by MRiscoC (c) 2022, adapted by xXHenneBXx\n')
+  log('Pro FW Configurations Generator')
+  log('Created by xXHenneBXx\n')
+  log('Professional Firmware by MRiscoC (c) 2022\n')
 
   if Machine_Name:
     TargetDir = Machine_Name+'/'

@@ -18,7 +18,7 @@
   {
     "op": "CustomVal",
     "searchfor": "TEMP_SENSOR_BED",
-    "value": "0"
+    "value": "1"
   },
   {
     "op": "CustomVal",
@@ -173,7 +173,7 @@
   {
     "op": "CustomVal",
     "searchfor": "TRAMMING_SCREW_THREAD",
-    "value": "M4_CW"
+    "value": "40"
   },
   {
     "op": "CustomVal",

@@ -185,13 +185,13 @@
     "op": "CustomVal",
     "searchfor": "FILAMENT_RUNOUT_DISTANCE_MM",
     "value": "25",
-    "comment": "MRiscoC Customizable by menu"
+    "comment": " Customizable by menu"
   },
   {
     "op": "CustomVal",
     "searchfor": "MESH_INSET",
     "value": "25",
-    "comment": "MRiscoC Center mesh"
+    "comment": " Center mesh"
   },
   {
     "op": "Custom",
@@ -220,7 +220,7 @@
   {
     "op": "CustomVal",
     "searchfor": "TRAMMING_SCREW_THREAD",
-    "value": "M4_CW"
+    "value": "40"
   },
   {
     "op": "Disable",
@@ -230,19 +230,19 @@
     "op": "CustomVal",
     "searchfor": "RETRACT_LENGTH",
     "value": "5",
-    "comment": "MRiscoC Bowden"
+    "comment": "For Bowden"
   },
   {
     "op": "CustomVal",
     "searchfor": "RETRACT_FEEDRATE",
     "value": "40",
-    "comment": "MRiscoC Bowden"
+    "comment": "For Bowden"
   },
   {
     "op": "CustomVal",
     "searchfor": "RETRACT_RECOVER_FEEDRATE",
     "value": "40",
-    "comment": "MRiscoC Bowden"
+    "comment": "For Bowden"
   }
 ],
 "Version.h" : [

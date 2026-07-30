@@ -1,41 +1,42 @@
-# PET Pultrusion Configurator
-
-A configuration tool for generating Marlin firmware files for **PET/PETE plastic bottle-to-filament pultrusion systems**, based on the **Recreator MK*** by Josh Taylor and derived from the Professional Firmware Configurator by MRiscoC, adapted by xXHenneBXx.
-
-This tool strips out 3D-printer-specific features that a pultrusion system does not need (bed leveling, probes, homing, CoreXY, laser modules) while keeping all beneficial enhancements (Input Shaping, Linear Advance, MPC temperature control, NeoPixel, Speaker, SD features, and more). New pultrusion-specific features have been added for PET/PETE processing.
+#PRO FIRMWARE
 
 ## Features
+- **CVLM** - Creative CV laser module 
+- **IS** - Input Shaping
+- **LA** - Linear Advance  
+- **MPC** - Model Predictive Temperature Control
+- **NP** - Support for Neopixel  
+- **Speaker** - Support for speaker tones
+- **MM** - Firmware for Manual Mesh, use it if you don't have a probe.  
+- **BLT** - BL/3D/CR Touch probe support.  
+- **BQMPv2** - Biqu microprove v2
+- **UBL** - Unified Bed Leveling
 
-### What was removed (not needed for pultrusion)
-- Bed leveling (BLTouch, CR Touch, Manual Mesh, UBL, all probes)
-- CoreXY kinematics
-- Laser module support (CVLM)
-- Home offset adjustments
-- All 3D printer-specific configs (Ender, Aquila, etc.)
+## Board nomenclature
 
-### What was kept (beneficial for pultrusion)
-- Input Shaping (IS)
-- Linear Advance (LA)
-- Model Predictive Temperature Control (MPC)
-- NeoPixel LED support (NP)
-- Speaker tones
-- SD card read-only mode
-- Stepper lock / timeout control
-- G-code repeat and depth markers
-- All board support (4.2.2, 4.2.7, SKR Mini E3, etc.)
-- All display support (DWIN, TJC, DACAI, SYNWIT, CR10)
-- All thermistor options (T1, T5, T13, T20)
+- **422** - Creality board v4.2.2
+- **427** - Creality board v4.2.7
+- **301F1** - Creality board V2.4.S1.301 with STM32F103
+- **301F4** - Creality board V2.4.S1.301 with STM32F401
+- **SKRME3V3** - BIGTREETECH SKR Mini E3 V3 
+
+
+## Supported Displays
+- **CR10DSPLY** - Former monochrome LCD display 12864  
+- **DACAI/DWIN/SYNWIT/TJC** - Color screen with knob encoder  
+
+
+## Thermistor nomenclature
+
+- **T1** - Creality stock temperature sensor
+- **T5** - Marlin #5 (Volcano-style)
+- **T13** - Marlin #13 (Sprite Pro, 100k Hisens 3950, up to 300C)
+- **T20** - Marlin #20
 
 ### What was added (pultrusion-specific)
 - **PETPreset**: PET/PETE optimized temperature and PID settings (240-290C range)
 - **PullTune**: Pultrusion motion tuning for slow, steady filament pull
-- **Spooler**: Filament runout detection and auto-pause for spooler integration
 - **DualDrive**: Dual drive gear extruder settings (BMG-style 3:1 ratio)
-
-### Printer profiles
-- **RecreatorMK3**: Higher E-steps (130), 290C max, direct-drive style retract
-- **RecreatorMK2**: Standard E-steps (93), 275C max, Bowden retract
-- **CustomPull**: Blank canvas for custom pultrusion builds
 
 ## Running the Configurator
 
@@ -51,10 +52,14 @@ Select the printer, board, display, thermistor, and features, then press **Set C
 
 ## Creating configurations programmatically
 
-```python
+To create Ender3V2 Configuration files with a BLTouch and UBL support it is easy to write a little Python script to call the above function:
+
+```Python
+#!/usr/bin/python
 import CreateConfigs
-CreateConfigs.Generate('MyPultrusion', ['RecreatorMK3', '422', 'PETPreset', 'PullTune', 'Spooler'])
+CreateConfigs.Generate('Ender3V2-422-BLTUBL', ['Ender3V2','422','BLT','UBL'])
 ```
+
 
 ## Custom features
 
@@ -83,29 +88,36 @@ Supported operations:
 - **Disable**: Disable a feature
 - **Replace**: Replace a pattern with other text
 
+For example to change the default tramming points you can write in the "Configuration_adv.h" section of the json the command:
+```json
+  {
+    "op": "Custom",
+    "searchfor": "TRAMMING_POINT_XY",
+    "mask": "{.*}",
+    "value":"{ { 29, 29 }, { 299, 29 }, { 299, 299 }, { 29, 299 } }"
+  }
+```
+
+For disable Multiple probing you can write in the "Configuration.h" section of the json the command:
+```json
+  {
+    "op": "Disable",
+    "searchfor": "MULTIPLE_PROBING",
+    "comment": "Custom disable"
+  }
+```
+The comment line is optional. Masks are in regex format, use the provided json as examples.
+
 ## Compiling the firmware
 
 Move the generated `Version.h`, `Configuration.h`, `Configuration_adv.h` to the Marlin folder, and `platformio.ini` to the project root. Compile using VSCode with PlatformIO and Auto Build Marlin.
 
-## Board nomenclature
 
-- **422** - Creality board v4.2.2
-- **427** - Creality board v4.2.7
-- **301F1** - Creality board V2.4.S1.301 with STM32F103
-- **301F4** - Creality board V2.4.S1.301 with STM32F401
-- **SKRME3V3** - BIGTREETECH SKR Mini E3 V3
-
-## Thermistor nomenclature
-
-- **T1** - Creality stock temperature sensor
-- **T5** - Marlin #5 (Volcano-style)
-- **T13** - Marlin #13 (Sprite Pro, 100k Hisens 3950, up to 300C)
-- **T20** - Marlin #20
 
 ## Credits
 
-- Based on **Recreator MK*** by Josh Taylor
-- Derived from **Professional Firmware** by MRiscoC, adapted by xXHenneBXx
+- Updated/Enhanced By xXHenneBXx
+- Derived from **Professional Firmware** by MRiscoC
 - Marlin is licensed under GPL
 
 ## Disclaimer

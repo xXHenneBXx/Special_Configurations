@@ -1,9 +1,19 @@
 {
 "Configuration.h" : [
   {
+    "op": "Disable",
+    "searchfor": "Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN",
+    "comment": "Manual Mesh does NOT have a probe"
+  },
+  {
+    "op": "Disable",
+    "searchfor": "USE_PROBE_FOR_Z_HOMING",
+    "comment": "Manual Mesh does NOT have a probe"
+  },
+  {
     "op": "Enable",
     "searchfor": "PROBE_MANUALLY",
-    "comment": "Manual probing - no probe hardware required"
+    "comment": "Manual probing"
   },
   {
     "op": "Enable",
@@ -14,6 +24,12 @@
     "op": "Enable",
     "searchfor": "MESH_BED_LEVELING",
     "comment": "Manual mesh bed leveling - step-by-step LCD guided"
+  },
+  {
+    "op": "CustomVal",
+    "searchfor": "LEVELING_NOZZLE_TEMP",
+    "value": "180",
+    "comment": "Preheat nozzle without oozing"
   },
   {
     "op": "CustomVal",
@@ -30,7 +46,12 @@
     "op": "Enable",
     "searchfor": "RESTORE_LEVELING_AFTER_G28",
     "comment": "Restore leveling state after homing"
-  }
+  },
+  {
+    "op": "Disable",
+    "searchfor": "HAS_TRAMMING_WIZARD",
+    "comment": "Manual Mesh does NOT have a probe"
+  },
 ],
 "Configuration_adv.h" : [
   {

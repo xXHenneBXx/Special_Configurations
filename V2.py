@@ -3,7 +3,7 @@
 # ------------------------------------------------------------------------------
 # Ender3V2 Configurations generator script
 # Author: xXHenneBXx
-# URL: https://github.com/xXHenneBXx/Pultrusion
+# URL: https://github.com/xXHenneBXx/Special_Configurations
 # ------------------------------------------------------------------------------
 import CreateConfigs
 
