@@ -34,14 +34,18 @@
 #endif
 
 #ifdef DWIN_LCD_PROUI
-  #include "../lcd/dwin/proui/dwin.h"
+  #include "../lcd/e3v2/proui/dwin.h"
   #if ENABLED(LCD_BED_TRAMMING)
-    #include "../lcd/dwin/proui/bed_tramming.h"
+    #include "../lcd/e3v2/proui/bedlevel_tools.h"
   #endif
 #endif
 
+#include "proui_ex.h"
 #include "custom_gcodes.h"
 
+#if ALL(HAS_GCODE_PREVIEW, PREVIEW_MENU_ITEM)
+  static bool gcode_preview_enabled = false;
+#endif
 
 //=============================================================================
 // Extended G-CODES
@@ -56,11 +60,36 @@ void cError() {
   void C11() {
     const int16_t E = parser.seenval('E') ? parser.value_byte() : 0; // UI element
     if (E) {
-      hmiValue.Color[0] = parser.seenval('R') ? parser.value_byte() : 0;
-      hmiValue.Color[1] = parser.seenval('G') ? parser.value_byte() : 0;
-      hmiValue.Color[2] = parser.seenval('B') ? parser.value_byte() : 0;
-      dwinApplyColor(E);
-    } else dwinRedrawScreen();
+      HMI_value.Color[0] = parser.seenval('R') ? parser.value_byte() : 0;
+      HMI_value.Color[1] = parser.seenval('G') ? parser.value_byte() : 0;
+      HMI_value.Color[2] = parser.seenval('B') ? parser.value_byte() : 0;
+      uint16_t *target = nullptr;
+      switch (E) {
+        case 1: target = &HMI_data.Background_Color; break;
+        case 2: target = &HMI_data.Cursor_Color; break;
+        case 3: target = &HMI_data.TitleBg_Color; break;
+        case 4: target = &HMI_data.TitleTxt_Color; break;
+        case 5: target = &HMI_data.Text_Color; break;
+        case 6: target = &HMI_data.Selected_Color; break;
+        case 7: target = &HMI_data.SplitLine_Color; break;
+        case 8: target = &HMI_data.Highlight_Color; break;
+        case 9: target = &HMI_data.StatusBg_Color; break;
+        case 10: target = &HMI_data.StatusTxt_Color; break;
+        case 11: target = &HMI_data.PopupBg_Color; break;
+        case 12: target = &HMI_data.PopupTxt_Color; break;
+        case 13: target = &HMI_data.AlertBg_Color; break;
+        case 14: target = &HMI_data.AlertTxt_Color; break;
+        case 15: target = &HMI_data.PercentTxt_Color; break;
+        case 16: target = &HMI_data.Barfill_Color; break;
+        case 17: target = &HMI_data.Indicator_Color; break;
+        case 18: target = &HMI_data.Coordinate_Color; break;
+        default: target = nullptr; break;
+      }
+      if (target) {
+        *target = RGB(HMI_value.Color[0], HMI_value.Color[1], HMI_value.Color[2]);
+        DWIN_RedrawScreen();
+      } else DWIN_RedrawScreen();
+    } else DWIN_RedrawScreen();
   }
 #endif
 
@@ -69,9 +98,9 @@ void cError() {
   void C35() {
     if (parser.seenval('T')) {
       const int8_t i = parser.value_byte();
-      if (WITHIN(i, 0, 4)) tram(i);
+      if (WITHIN(i, 0, 4)) Tram(i);
     }
-    TERN_(HAS_TRAMMING_WIZARD, else runTrammingWizard());
+    TERN_(HAS_TRAMMING_WIZARD, else Trammingwizard());
   }
 #endif
 
@@ -85,7 +114,7 @@ void C108() {
   #if HAS_LCD_BRIGHTNESS
     if (!ui.backlight) ui.refresh_brightness();
   #endif
-  marlin.user_resume();
+  wait_for_user = false;
   DONE_BUZZ(true);
 }
 
@@ -93,17 +122,17 @@ void C108() {
 #if ALL(HAS_GCODE_PREVIEW, PREVIEW_MENU_ITEM)
 void C250() {
   if (parser.seenval('P')) {
-    hmiData.enablePreview = !!parser.value_byte();
+    gcode_preview_enabled = !!parser.value_byte();
   }
-  SERIAL_ECHOLNPGM(F("PREVIEW:"), hmiData.enablePreview);
+  SERIAL_ECHOLNPGM(F("PREVIEW:"), (int)gcode_preview_enabled);
 }
 #endif
 
 // lock/unlock screen
 #if HAS_LOCKSCREEN
   void C510() {
-    if (parser.seenval('U') && parser.value_int()) dwinUnLockScreen();
-    else dwinLockScreen();
+    if (parser.seenval('U') && parser.value_int()) DWIN_UnLockScreen();
+    else DWIN_LockScreen();
   }
 #endif
 

@@ -22,9 +22,9 @@
 
 /**
  * DWIN Enhanced implementation for PRO UI
- * Author: Miguel A. Risco-Castillo (MRISCOC)
- * Version: 3.21.2
- * Date: 2022/12/02
+ * Author: xXHenneBXx
+ * Version: 1.0
+ * Date: 2026/07/25
  */
 
 #include "../../../inc/MarlinConfig.h"
@@ -368,7 +368,11 @@ typedef struct { uint16_t x, y[2], w, h; } text_info_t;
 
 void ICON_Button(const bool selected, const int iconid, const frame_rect_t &ico, const text_info_t (&txt), FSTR_P caption) {
   DWINUI::Draw_IconWB(iconid + selected, ico.x, ico.y);
-  if (selected) DWINUI::Draw_Box(0, HMI_data.Highlight_Color, ico);
+  if (selected) {
+    // Premium framed highlight: 2px cyan border with subtle inner glow
+    DWINUI::Draw_Box(0, HMI_data.Highlight_Color, ico);
+    DWINUI::Draw_Box(0, HMI_data.Highlight_Color, { ico.x + 1, ico.y + 1, ico.w - 2, ico.h - 2 });
+  }
   if (HMI_IsChinese()) {
     DWIN_Frame_AreaCopy(1, txt.x, txt.y[selected], txt.x + txt.w - 1, txt.y[selected] + txt.h - 1, ico.x + (ico.w - txt.w) / 2, (ico.y + ico.h - 25) - txt.h/2);
   }
@@ -1642,25 +1646,34 @@ void DWIN_M73() {
   void DWIN_FilamentRunout(const uint8_t extruder) { LCD_MESSAGE(MSG_RUNOUT_SENSOR); }
 #endif
 
+// ----------------------------------------------------------------------------
+// Custom "Carbon & Cyan" theme defaults
+//
+// RGB565 values (16-bit, 5-6-5 packed). Override the stock ProUI palette with
+// a cohesive dark UI: charcoal background, cyan accent for selection frames /
+// progress / highlights, soft slate for dividers, high-contrast white text.
+// Users can still tweak each color in the Colors menu; these are the new
+// factory defaults restored by "Restore Default Colors".
+// ----------------------------------------------------------------------------
 void DWIN_SetColorDefaults() {
-  HMI_data.Background_Color = Def_Background_Color;
-  HMI_data.Cursor_Color     = Def_Cursor_Color;
-  HMI_data.TitleBg_Color    = Def_TitleBg_Color;
-  HMI_data.TitleTxt_Color   = Def_TitleTxt_Color;
-  HMI_data.Text_Color       = Def_Text_Color;
-  HMI_data.Selected_Color   = Def_Selected_Color;
-  HMI_data.SplitLine_Color  = Def_SplitLine_Color;
-  HMI_data.Highlight_Color  = Def_Highlight_Color;
-  HMI_data.StatusBg_Color   = Def_StatusBg_Color;
-  HMI_data.StatusTxt_Color  = Def_StatusTxt_Color;
-  HMI_data.PopupBg_Color    = Def_PopupBg_Color;
-  HMI_data.PopupTxt_Color   = Def_PopupTxt_Color;
-  HMI_data.AlertBg_Color    = Def_AlertBg_Color;
-  HMI_data.AlertTxt_Color   = Def_AlertTxt_Color;
-  HMI_data.PercentTxt_Color = Def_PercentTxt_Color;
-  HMI_data.Barfill_Color    = Def_Barfill_Color;
-  HMI_data.Indicator_Color  = Def_Indicator_Color;
-  HMI_data.Coordinate_Color = Def_Coordinate_Color;
+  HMI_data.Background_Color = Color_Bg_Black;      // deep carbon background
+  HMI_data.Cursor_Color     = RGB(0,50,63);        // dark cyan cursor bar
+  HMI_data.TitleBg_Color    = RGB(0,40,53);        // slightly darker cyan header
+  HMI_data.TitleTxt_Color   = Color_White;         // crisp white titles
+  HMI_data.Text_Color       = RGB(0,210,255);      // cyan body text
+  HMI_data.Selected_Color   = RGB(0,173,204);      // bright cyan selected highlight
+  HMI_data.SplitLine_Color  = RGB(255,95,1);       // Orange divider
+  HMI_data.Highlight_Color  = RGB(0,210,255);      // vivid cyan icon frame
+  HMI_data.StatusBg_Color   = RGB(0,40,53);        // cyan-tinted status bar
+  HMI_data.StatusTxt_Color  = RGB(180,240,255);    // light cyan status text
+  HMI_data.PopupBg_Color    = RGB(16,22,28);       // dark popup background
+  HMI_data.PopupTxt_Color   = Color_White;         // white popup text
+  HMI_data.AlertBg_Color    = RGB(60,8,12);        // deep red alert background
+  HMI_data.AlertTxt_Color   = RGB(255,200,200);    // soft red alert text
+  HMI_data.PercentTxt_Color = RGB(0,210,255);      // cyan percent readout
+  HMI_data.Barfill_Color    = RGB(255,95,1);       // Orange progress bar fill
+  HMI_data.Indicator_Color  = RGB(0,210,255);      // cyan dashboard values
+  HMI_data.Coordinate_Color = RGB(0,210,255);      // cyan XYZ readouts
 }
 
 void DWIN_SetDataDefaults() {
@@ -2548,6 +2561,30 @@ void SetStepsZ() { HMI_value.axis = Z_AXIS, SetPFloatOnClick( MIN_STEP, MAX_STEP
   }
 #endif
 
+#if HAS_PID_HEATING && ENABLED(PID_EDIT_MENU)
+
+  void setKp() { SetPFloatOnClick(0, 1000, 2); }
+  void applyPIDi() {
+    *MenuData.P_Float = scalePID_i(MenuData.Value / POW(10, 2));
+    TERN_(PIDTEMP, thermalManager.updatePID());
+  }
+  void applyPIDd() {
+    *MenuData.P_Float = scalePID_d(MenuData.Value / POW(10, 2));
+    TERN_(PIDTEMP, thermalManager.updatePID());
+  }
+  void setKi() {
+    MenuData.P_Float = (float*)static_cast<MenuItemPtrClass*>(CurrentMenu->SelectedItem())->value;
+    const float value = unscalePID_i(*MenuData.P_Float);
+    SetFloatOnClick(0, 1000, 2, value, applyPIDi);
+  }
+  void setKd() {
+    MenuData.P_Float = (float*)static_cast<MenuItemPtrClass*>(CurrentMenu->SelectedItem())->value;
+    const float value = unscalePID_d(*MenuData.P_Float);
+    SetFloatOnClick(0, 1000, 2, value, applyPIDd);
+  }
+
+#endif // HAS_PID_HEATING && PID_EDIT_MENU
+
 #if ENABLED(FWRETRACT)
   void Return_FWRetract_Menu() { (PreviousMenu == FilSetMenu) ? Draw_FilSet_Menu() : Draw_Tune_Menu(); }
   void SetRetractLength() { SetPFloatOnClick( 0, 10, UNITFDIGITS); }
@@ -2557,7 +2594,7 @@ void SetStepsZ() { HMI_value.axis = Z_AXIS, SetPFloatOnClick( MIN_STEP, MAX_STEP
   void SetAddRecover()    { SetPFloatOnClick(-5, 5, UNITFDIGITS); }
 #endif
 
-// Special Menuitem Drawing functions =================================================
+// Special Menuitem drawing functions =================================================
 
 void onDrawBack(MenuItemClass* menuitem, int8_t line) {
   if (HMI_IsChinese()) menuitem->SetFrame(1, 129, 72, 156, 84);
@@ -3272,7 +3309,7 @@ void Draw_Tune_Menu() {
       FanSpeedItem = EDIT_ITEM(ICON_FanSpeed, MSG_FAN_SPEED, onDrawFanSpeed, SetFanSpeed, &thermalManager.fan_speed[0]);
     #endif
     #if ALL(HAS_ZOFFSET_ITEM, HAS_BED_PROBE, BABYSTEPPING)
-      EDIT_ITEM(ICON_Zoffset, MSG_ZPROBE_ZOFFSET, onDrawZOffset, SetZOffset, &BABY_Z_VAR);
+      EDIT_ITEM(ICON_Zoffset, MSG_ZPROBE_ZOFFSET, onDrawPFloat2Menu, SetZOffset, &BABY_Z_VAR);
     #elif ALL(HAS_ZOFFSET_ITEM, MESH_BED_LEVELING, BABYSTEPPING)
       EDIT_ITEM(ICON_Zoffset, MSG_HOME_OFFSET_Z, onDrawPFloat2Menu, SetZOffset, &BABY_Z_VAR);
     #endif

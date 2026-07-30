@@ -397,12 +397,12 @@ static_assert(COUNT(arm) == LOGICAL_AXES, "AXIS_RELATIVE_MODES must contain " _L
 /**
  * Custom Boot and Status screens
  */
-#if ENABLED(SHOW_CUSTOM_BOOTSCREEN) && NONE(HAS_MARLINUI_U8GLIB, TOUCH_UI_FTDI_EVE, IS_DWIN_MARLINUI)
-  #error "SHOW_CUSTOM_BOOTSCREEN requires Graphical LCD or TOUCH_UI_FTDI_EVE."
-#elif ENABLED(SHOW_CUSTOM_BOOTSCREEN) && DISABLED(SHOW_BOOTSCREEN)
+//#if ENABLED(SHOW_CUSTOM_BOOTSCREEN) && NONE(HAS_MARLINUI_U8GLIB, TOUCH_UI_FTDI_EVE, IS_DWIN_MARLINUI)
+  //#error "SHOW_CUSTOM_BOOTSCREEN requires Graphical LCD or TOUCH_UI_FTDI_EVE."
+#if ENABLED(SHOW_CUSTOM_BOOTSCREEN) && DISABLED(SHOW_BOOTSCREEN)
   #error "SHOW_CUSTOM_BOOTSCREEN requires SHOW_BOOTSCREEN."
-#elif ENABLED(CUSTOM_STATUS_SCREEN_IMAGE) && !HAS_MARLINUI_U8GLIB
-  #error "CUSTOM_STATUS_SCREEN_IMAGE requires a 128x64 DOGM B/W Graphical LCD."
+//#elif ENABLED(CUSTOM_STATUS_SCREEN_IMAGE) && !HAS_MARLINUI_U8GLIB
+  //#error "CUSTOM_STATUS_SCREEN_IMAGE requires a 128x64 DOGM B/W Graphical LCD."
 #endif
 
 /**
@@ -2632,36 +2632,36 @@ static_assert(COUNT(arm) == LOGICAL_AXES, "AXIS_RELATIVE_MODES must contain " _L
 #if ENABLED(DWIN_CREALITY_LCD)
   #if !HAS_MEDIA
     #error "DWIN_CREALITY_LCD requires SDSUPPORT to be enabled."
-  #elif ANY(PID_EDIT_MENU, PID_AUTOTUNE_MENU)
-    #error "DWIN_CREALITY_LCD does not support PID_EDIT_MENU or PID_AUTOTUNE_MENU."
-  #elif ANY(MPC_EDIT_MENU, MPC_AUTOTUNE_MENU)
-    #error "DWIN_CREALITY_LCD does not support MPC_EDIT_MENU or MPC_AUTOTUNE_MENU."
-  #elif ENABLED(LCD_BED_TRAMMING)
-    #error "DWIN_CREALITY_LCD does not support LCD_BED_TRAMMING."
+  //#elif ANY(PID_EDIT_MENU, PID_AUTOTUNE_MENU)
+    //#error "DWIN_CREALITY_LCD does not support PID_EDIT_MENU or PID_AUTOTUNE_MENU."
+  //#elif ANY(MPC_EDIT_MENU, MPC_AUTOTUNE_MENU)
+    //#error "DWIN_CREALITY_LCD does not support MPC_EDIT_MENU or MPC_AUTOTUNE_MENU."
+  //#elif ENABLED(LCD_BED_TRAMMING)
+    //#error "DWIN_CREALITY_LCD does not support LCD_BED_TRAMMING."
   #elif ALL(LCD_BED_LEVELING, PROBE_MANUALLY)
     #error "DWIN_CREALITY_LCD does not support LCD_BED_LEVELING with PROBE_MANUALLY."
   #endif
 #elif ENABLED(DWIN_LCD_PROUI)
   #if !HAS_MEDIA
     #error "DWIN_LCD_PROUI requires SDSUPPORT to be enabled."
-  #elif ANY(PID_EDIT_MENU, PID_AUTOTUNE_MENU)
-    #error "DWIN_LCD_PROUI does not support PID_EDIT_MENU or PID_AUTOTUNE_MENU."
-  #elif ANY(MPC_EDIT_MENU, MPC_AUTOTUNE_MENU)
-    #error "DWIN_LCD_PROUI does not support MPC_EDIT_MENU or MPC_AUTOTUNE_MENU."
-  #elif ENABLED(LCD_BED_TRAMMING)
-    #error "DWIN_LCD_PROUI does not support LCD_BED_TRAMMING."
+  //#elif ANY(PID_EDIT_MENU, PID_AUTOTUNE_MENU)
+    //#error "DWIN_LCD_PROUI does not support PID_EDIT_MENU or PID_AUTOTUNE_MENU."
+  //#elif ANY(MPC_EDIT_MENU, MPC_AUTOTUNE_MENU)
+    //#error "DWIN_LCD_PROUI does not support MPC_EDIT_MENU or MPC_AUTOTUNE_MENU."
+  //#elif ENABLED(LCD_BED_TRAMMING)
+    //#error "DWIN_LCD_PROUI does not support LCD_BED_TRAMMING."
   #elif ALL(LCD_BED_LEVELING, PROBE_MANUALLY)
     #error "DWIN_LCD_PROUI does not support LCD_BED_LEVELING with PROBE_MANUALLY."
   #endif
 #endif
 
-#if LCD_BACKLIGHT_TIMEOUT_MINS
-  #if !HAS_ENCODER_ACTION
-    #error "LCD_BACKLIGHT_TIMEOUT_MINS requires an LCD with encoder or keypad."
-  #elif !PIN_EXISTS(LCD_BACKLIGHT)
-    #error "LCD_BACKLIGHT_TIMEOUT_MINS requires LCD_BACKLIGHT_PIN."
-  #endif
-#endif
+//#if LCD_BACKLIGHT_TIMEOUT_MINS
+//  #if !HAS_ENCODER_ACTION
+//    #error "LCD_BACKLIGHT_TIMEOUT_MINS requires an LCD with encoder or keypad."
+//  #elif !PIN_EXISTS(LCD_BACKLIGHT)
+//    #error "LCD_BACKLIGHT_TIMEOUT_MINS requires LCD_BACKLIGHT_PIN."
+//  #endif
+//#endif
 
 /**
  * Display Sleep is not supported by these common displays

@@ -42,15 +42,6 @@
   #endif
 #endif
 
-namespace GET_LANG(LCD_LANGUAGE) {
-  #define _MSG_PREHEAT(N) \
-    LSTR MSG_PREHEAT_##N                  = _UxGT("Preheat ") PREHEAT_## N ##_LABEL; \
-    LSTR MSG_PREHEAT_## N ##_SETTINGS     = _UxGT("Preheat ") PREHEAT_## N ##_LABEL _UxGT(" Conf");
-  #if PREHEAT_COUNT > 3
-    REPEAT_S(4, PREHEAT_COUNT, _MSG_PREHEAT)
-  #endif
-}
-
 enum processID : uint8_t {
   // Process ID
   MainMenu,
@@ -187,6 +178,17 @@ void RebootPrinter();
 void DisableMotors();
 void AutoLev();
 void AutoHome();
+#if HAS_BED_PROBE
+  float Tram(const uint8_t point);
+#else
+  void Tram(const uint8_t point);
+#endif
+void TramXY(const uint8_t point, const float &margin, float &x, float &y);
+void TramFL();
+void TramFR();
+void TramBR();
+void TramBL();
+void TramC();
 #if HAS_PREHEAT
   #define _DOPREHEAT(N) void DoPreheat##N();
   REPEAT_1(PREHEAT_COUNT, _DOPREHEAT)

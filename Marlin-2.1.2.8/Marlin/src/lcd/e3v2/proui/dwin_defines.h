@@ -47,24 +47,24 @@
   #define HAS_ZOFFSET_ITEM 1
 #endif
 
-#define Def_Background_Color  RGB( 1, 12,  8)
-#define Def_Cursor_Color      RGB(20, 49, 31)
-#define Def_TitleBg_Color     RGB( 0, 23, 16)
+#define Def_Background_Color  Color_Bg_Black;      // deep carbon background
+#define Def_Cursor_Color      RGB( 0, 50, 63);     // dark cyan cursor bar
+#define Def_TitleBg_Color     RGB( 0, 40, 53);     // slightly darker cyan header
 #define Def_TitleTxt_Color    Color_White
-#define Def_Text_Color        Color_White
-#define Def_Selected_Color    Select_Color
-#define Def_SplitLine_Color   RGB( 0, 23, 16)
-#define Def_Highlight_Color   Color_White
-#define Def_StatusBg_Color    RGB( 0, 23, 16)
-#define Def_StatusTxt_Color   Color_Yellow
-#define Def_PopupBg_Color     Color_Bg_Window
-#define Def_PopupTxt_Color    Popup_Text_Color
-#define Def_AlertBg_Color     Color_Bg_Red
-#define Def_AlertTxt_Color    Color_Yellow
-#define Def_PercentTxt_Color  Percent_Color
-#define Def_Barfill_Color     BarFill_Color
-#define Def_Indicator_Color   Color_White
-#define Def_Coordinate_Color  Color_White
+#define Def_Text_Color        RGB(0,210,255);      // cyan body text
+#define Def_Selected_Color    RGB( 0,173,204);     // bright cyan selected highlight
+#define Def_SplitLine_Color   RGB( 28, 38, 45);    // subtle slate divider
+#define Def_Highlight_Color   RGB( 0,210,255);     // vivid cyan icon frame
+#define Def_StatusBg_Color    RGB( 0, 40, 53);     // cyan-tinted status bar
+#define Def_StatusTxt_Color   RGB(180,240,255);    // light cyan status text
+#define Def_PopupBg_Color     RGB( 16, 22, 28);    // dark popup background
+#define Def_PopupTxt_Color    Color_White;         // white popup text
+#define Def_AlertBg_Color     RGB( 60,  8, 12);    // deep red alert background
+#define Def_AlertTxt_Color    RGB(255,200,200);    // soft red alert text
+#define Def_PercentTxt_Color  RGB( 0,210,255);     // cyan percent readout
+#define Def_Barfill_Color     RGB( 0,173,204);     // cyan progress bar fill
+#define Def_Indicator_Color   RGB(0,210,255);      // cyan dashboard values
+#define Def_Coordinate_Color  RGB( 0,210,255);     // cyan XYZ readouts
 #define Def_Button_Color      RGB( 0, 23, 16)
 #if ALL(LED_CONTROL_MENU, HAS_COLOR_LEDS)
   #define Def_Leds_Color      LEDColorWhite()

@@ -58,7 +58,7 @@ void DWINUI::init() {
 void DWINUI::setFont(fontid_t fid) { fontid = fid; }
 
 // Get font character width
-uint8_t fontWidth(uint8_t cfont) {
+uint8_t DWINUI::fontWidth(uint8_t cfont) {
   switch (cfont) {
     #if DISABLED(TJC_DISPLAY)
       case font6x12 : return 6;
@@ -77,7 +77,7 @@ uint8_t fontWidth(uint8_t cfont) {
 }
  
 // Get font character height
-uint8_t fontHeight(uint8_t cfont) {
+uint8_t DWINUI::fontHeight(uint8_t cfont) {
   switch (cfont) {
     #if DISABLED(TJC_DISPLAY)
       case font6x12 : return 12;
