@@ -22,10 +22,10 @@
 #pragma once
 
 /**
- * DWIN general defines and data structs for PRO UI
- * Author: Miguel A. Risco-Castillo (MRISCOC)
- * Version: 3.12.2
- * Date: 2022/08/08
+ * DWIN Enhanced implementation for PRO UI
+ * Author: xXHenneBXx
+ * Version: 1.0
+ * Date: 2026/07/25
  */
 
 //#define DEBUG_DWIN 1

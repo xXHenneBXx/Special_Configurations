@@ -27,8 +27,8 @@
 
 //#define USE_STOCK_DWIN_SET  // Use the Creality stock DWIN_SET instead of Marlin's unified DWIN_SET by The-EG & thinkyhead
 #ifdef USE_STOCK_DWIN_SET
-  #define ICON 9 // 9.ICO
-#else
+  //#define ICON 9 // 9.ICO
+//#else
   #define ICON 7 // 7.ICO
 #endif
 

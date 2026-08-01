@@ -189,7 +189,7 @@ def Generate(Machine_Name, Mode) :
 
   log('Pro FW Configurations Generator')
   log('Created by xXHenneBXx\n')
-  log('Professional Firmware by MRiscoC (c) 2022\n')
+  log('Enhanced Fork Of MRiscoC (c) 2022\n')
 
   if Machine_Name:
     TargetDir = Machine_Name+'/'

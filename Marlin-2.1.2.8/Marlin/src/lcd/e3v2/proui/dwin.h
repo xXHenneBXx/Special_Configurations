@@ -23,9 +23,9 @@
 
 /**
  * DWIN Enhanced implementation for PRO UI
- * Author: Miguel A. Risco-Castillo (MRISCOC)
- * Version: 3.21.2
- * Date: 2022/12/02
+ * Author: xXHenneBXx
+ * Version: 1.0
+ * Date: 2026/07/25
  */
 
 #include "../../../inc/MarlinConfig.h"

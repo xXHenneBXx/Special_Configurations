@@ -1096,7 +1096,7 @@
       "op": "Custom",
       "searchfor": "SHORT_BUILD_VERSION",
       "mask": "\".*\"",
-      "value": "\"2.1.2.8 Pro FW\""
+      "value": "\"2.1.5.x Pro FW\""
     },
     {
       "op": "Custom",
