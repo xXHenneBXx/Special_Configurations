@@ -25,6 +25,8 @@ on:
 
 jobs:
   test_builds:
+      permissions:
+      contents: read
     name: Run All Tests
     if: github.repository == 'MarlinFirmware/Marlin'
 
