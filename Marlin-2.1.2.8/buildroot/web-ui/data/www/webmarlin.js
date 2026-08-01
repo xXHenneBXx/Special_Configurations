@@ -360,6 +360,14 @@ var WmButtons = {
   SdRelease: function() {
     wmWebSoket.Send(wmGCommands.SdRelease);
   },
+  const escapeHtml = function(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;'); 
+  };
   SendGcommand: function() {
     if(wmWebSoket.WSObject !== null && wmWebSoket.WSObject.readyState === wmEnums.WSSatuses.OPEN) {
       WmControls.Disable(["#btn-gcommand"]);
@@ -379,17 +387,18 @@ var WmButtons = {
           if(gc.Supported) {
             wmGCommands.CustomCmd.GCode = gcmd.val().trim().toUpperCase();
             jsLog.Debug("Sending custom command: " + wmGCommands.CustomCmd.GCode);
-            wmWebSoket.Send(wmGCommands.CustomCmd);
+            wmWebSoket.Send(wmGCommands.CustomCmd);  
           } else {
-            jsLog.Warning("Unsupported command: " + wmGCommands.CustomCmd.GCode);
-            WmConsole.Trace(new wmLogItem("GCmd: <span class=\"badge badge-light\">" + gcmd.val() + "</span> Unsupported command", wmEnums.WSMsgDirection.RECEIVED, wmEnums.ConsoleLevels.ERROR));
-          }
+          jsLog.Warning("Unsupported command: " + wmGCommands.CustomCmd.GCode);
+          // PATCHED HERE:
+          let msg = `GCmd: <span class="badge badge-light">${escapeHtml(gcmd.val())}</span> Unsupported command`;
+          WmConsole.Trace(new wmLogItem(msg, wmEnums.WSMsgDirection.RECEIVED, wmEnums.ConsoleLevels.ERROR));
         }
-        gcmd.val('');
-        $('#checksum-gcommand-value').html('&nbsp;');
+        $('#checksum-gcommand-value').text('\u00A0'); //Used .text() instead of .html()
         WmControls.Enable(["#btn-gcommand"]);
       }
-    } else { $('#modal-connect').modal('show'); }
+    } 
+    else { $('#modal-connect').modal('show'); }
   },
   SetPositionHome: function(b) {
     if(b.id==="btn-move-home-all"){ wmWebSoket.Send(wmGCommands.MoveHome); }
